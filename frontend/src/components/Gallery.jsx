@@ -4,7 +4,7 @@ import React from 'react';
 const Gallery = () => {
     return (
         <div>
-            <h1>Gallery page</h1>
+            <h1>Lesson page</h1>
         </div>
     );
   };
