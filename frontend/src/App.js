@@ -18,6 +18,7 @@ import Lesson from './components/lessons/Lesson'
 const App = () => {
   return (
     <BrowserRouter>
+    <h1>Nurse Plus</h1>
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -29,7 +30,6 @@ const App = () => {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/lesson" element={<Lesson />} />
       </Routes>
-
       <Footer />
     </ BrowserRouter>
   );
