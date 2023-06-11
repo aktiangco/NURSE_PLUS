@@ -69,11 +69,20 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-
 # NURSE_PLUS
 
 In order to facilitate the improvement of nurses' skills and provide them with additional educational opportunities, a class is being organized. The purpose of this class is to help nurses enhance their abilities and expand their knowledge.
 
-# Helped
+# Help Sources
 
-webpack and babel reference: `https://medium.com/age-of-awareness/setup-react-with-webpack-and-babel-5114a14a47e9#8b7c`
+- Structure and Guidance
+  - Fellow classmate Marlon Baker
+
+- webpack and babel reference:
+  - [https://medium.com/age-of-awareness/setup-react-with-webpack-and-babel-5114a14a47e9#8b7c](link)
+
+- Calendar
+  - React Calendar by ChatGPT
+
+- React Bootstrap
+  - [https://react-bootstrap.netlify.app/](link)
