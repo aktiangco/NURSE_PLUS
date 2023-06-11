@@ -1,16 +1,37 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 
 
 const NavBar = () => {
     return (
-        <nav className="NavBar">       
-            <Link className="button" to="/"><button>Home</button></Link>
-            <Link className="button" to="/gallery"><button>Lessons</button></Link>
-            <Link className="button" to="/about"><button>About Us</button></Link>
-            <Link className="button" to="/contact"><button>Contact Us</button></Link>
-            <Link className="button" to="/login"><button>Log in</button></Link>              
-        </nav>
+        <Navbar bg="dark" expand="lg" variant="dark">
+        <Container style={{ justifyContent: 'evenly' }}>
+          <Navbar.Brand>NavBar</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav " >
+            <Nav className="me-auto " style={{ justifyContent: 'end' }}>
+                <Link className="nav-item active" style={{ textDecoration: 'none' }} to="/">
+                    <button className="nav-link rounded">Home</button>
+                </Link>
+                <Link class="nav-item" style={{ textDecoration: 'none' }} to="/gallery">
+                    <button className="nav-link rounded">Lessons</button>
+                </Link>
+                <Link class="nav-item" style={{ textDecoration: 'none' }} to="/about">
+                    <button className="nav-link rounded">About Us</button>
+                </Link>
+                <Link class="nav-item" style={{ textDecoration: 'none' }} to="/contact">
+                 <button className="nav-link rounded">Contact Us</button>
+                </Link>
+                <Link class="nav-item" style={{ textDecoration: 'none' }} to="/login">
+                    <button className="nav-link rounded">Log in</button>
+                </Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+     </Navbar>
     );
   };
   

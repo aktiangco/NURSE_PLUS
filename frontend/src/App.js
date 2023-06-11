@@ -18,7 +18,7 @@ import './App.css';
 
 const App = () => {
   return (
-    <div>
+    <div bg="dark">
     <h1>Nurse Plus</h1>
       <NavBar />
       <Routes>

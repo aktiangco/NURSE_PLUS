@@ -8,24 +8,9 @@ body {
   justify-content: center;
 }
 
-.NavBar {
-    padding: 15px;
-    margin: 15px;
-    border: 1px solid black;
-    border-radius: 10px;
-    justify-content: space-evenly;
-}
-
-/* .button {
-    text-align: justify;
+Link{
     text-decoration: none;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 20px;
-    background-color: cornflowerblue;
-    border: none;
-
-} */
+}
 
 button {
     padding: 10px;
@@ -35,8 +20,7 @@ button {
     justify-content:space-between;
     margin: 20px;
     border-radius: 10px;
-    
-
+    text-decoration: none;
 }
 
 button:hover {

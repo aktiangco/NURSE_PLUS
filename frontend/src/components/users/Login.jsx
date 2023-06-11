@@ -31,10 +31,10 @@ const Login = () => {
                 </div>
                 <br />
                 <div>
-                <input className="btn btn-primary" type="submit" value="Login" />
+                <input className="btn btn-success" type="submit" value="Login"/>
                     <br />
                     <br />
-                <Link to="/signup"><button>Sign up</button></Link>
+                <Link to="/signup"><button className="btn btn-warning">Sign up</button></Link>
                 </div>
             </form>
         </div>
