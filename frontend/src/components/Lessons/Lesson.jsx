@@ -1,16 +1,25 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
+import Card from 'react-bootstrap/Card';
 
 const Lesson = (props) => {
-
-    
     return (
         <div>
-          
-            <div>Lesson: {props.data.title}</div>
-            <div>Instructor: {props.data.instructor}</div>
-            <div>Date: {props.data.date}</div>
-            <button>click here</button>
+            <Card style={{ width: '18rem' }}>
+                <Card.Body>
+                    <Card.Title>{props.data.title}</Card.Title>
+                    <Card.Subtitle className="mb-2 text-muted">
+                        Instructor:{props.data.instructor}
+                        <br />
+                        Date:{props.data.date}
+                    </Card.Subtitle>
+                    <Card.Text className="text-truncate">
+                    {props.data.description}
+                    </Card.Text>
+                    <Card.Link><Link to="/details">More info</Link></Card.Link>
+                    
+                </Card.Body>
+            </Card>
         </div>
     );
   };

@@ -9,7 +9,8 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Error from './components/Error';
 import Gallery from './components/Gallery';
-import Lesson from './components/lessons/Lesson'
+import Lesson from './components/lessons/Lesson';
+import LessonDetails from './components/lessons/LessonDetails'
 import './App.css';
 
 
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/signup" element={<NewUser />} /> 
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/lesson" element={<Lesson />} />
+        <Route path="/details" element={<LessonDetails />} />
       </Routes>
       <Footer />
       </div>
