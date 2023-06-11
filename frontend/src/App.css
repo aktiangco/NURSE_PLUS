@@ -4,4 +4,49 @@ body {
   margin: 0;
   background-color: gray;
   color: black;
+  text-align: center;
+  justify-content: center;
+}
+
+.NavBar {
+    padding: 15px;
+    margin: 15px;
+    border: 1px solid black;
+    border-radius: 10px;
+    justify-content: space-evenly;
+}
+
+/* .button {
+    text-align: justify;
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+    background-color: cornflowerblue;
+    border: none;
+
+} */
+
+button {
+    padding: 10px;
+    background-color: rgb(45, 179, 231);
+    font-family: 'Trirong', sans-serif;
+    border: none;
+    justify-content:space-between;
+    margin: 20px;
+    border-radius: 10px;
+    
+
+}
+
+button:hover {
+    padding: 10px;
+    background-color: rgb(18, 133, 133);
+    font-family: 'Trirong', sans-serif;
+    color: white;
+    
+}
+
+Link{
+    text-decoration: none;
 }

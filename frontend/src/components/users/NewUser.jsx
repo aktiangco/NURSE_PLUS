@@ -4,7 +4,7 @@ import React from 'react';
 const NewUser = () => {
     return (
         <div>
-            <h1>New User Signup page</h1>
+            <h1>New User Sign-up page</h1>
             <form>
                 <label>
                     Name:

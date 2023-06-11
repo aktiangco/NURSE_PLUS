@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Login from './components/users/Login';
@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import Error from './components/Error';
 import Gallery from './components/Gallery';
 import Lesson from './components/lessons/Lesson'
+import './App.css';
 
 
 
@@ -17,7 +18,7 @@ import Lesson from './components/lessons/Lesson'
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <div>
     <h1>Nurse Plus</h1>
       <NavBar />
       <Routes>
@@ -31,7 +32,7 @@ const App = () => {
         <Route path="/lesson" element={<Lesson />} />
       </Routes>
       <Footer />
-    </ BrowserRouter>
+      </div>
   );
 }
 
