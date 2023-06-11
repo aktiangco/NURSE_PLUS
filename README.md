@@ -79,10 +79,10 @@ In order to facilitate the improvement of nurses' skills and provide them with a
   - Fellow classmate Marlon Baker
 
 - webpack and babel reference:
-  - [https://medium.com/age-of-awareness/setup-react-with-webpack-and-babel-5114a14a47e9#8b7c](link)
+  - [link](https://medium.com/age-of-awareness/setup-react-with-webpack-and-babel-5114a14a47e9#8b7c)
 
 - Calendar
   - React Calendar by ChatGPT
 
 - React Bootstrap
-  - [https://react-bootstrap.netlify.app/](link)
+  - [link](https://medium.com/age-of-awareness/setup-react-with-webpack-and-babel-5114a14a47e9#8b7c)
