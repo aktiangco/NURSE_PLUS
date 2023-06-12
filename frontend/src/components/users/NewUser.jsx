@@ -37,7 +37,6 @@ const NewUser = () => {
                                 required
                                 type="text"
                                 placeholder="First name"
-                                defaultValue="..."
                             />
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
@@ -47,10 +46,10 @@ const NewUser = () => {
                                 required
                                 type="text"
                                 placeholder="Last name"
-                                defaultValue="..."
                             />
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
+                                
                             <Form.Group as={Col} md="4" controlId="validationCustomUsername">
                             <Form.Label>Username</Form.Label>
                             <InputGroup hasValidation>
@@ -66,6 +65,24 @@ const NewUser = () => {
                                 </Form.Control.Feedback>
                             </InputGroup>
                             </Form.Group>
+                            <Form.Group as={Col} md="4" controlId="validationCustom01">
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control
+                                required
+                                type="text"
+                                placeholder="Email"
+                            />
+                            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                            </Form.Group>
+                                <Form.Group as={Col} md="4" controlId="validationCustom01">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control
+                                required
+                                type="text"
+                                placeholder="password"
+                            />
+                            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                            </Form.Group>     
                         </Row>
                         <Row className="mb-3">
                             <Form.Group as={Col} md="6" controlId="validationCustom03">
@@ -101,9 +118,7 @@ const NewUser = () => {
                         <Button type="submit">Submit form</Button>
                         </Form>
                     </Card.Text>
-                    <Card.Text>
-                        <Link to="/signup"><button className="btn btn-warning">Sign up</button></Link>
-                    </Card.Text>
+                    
                 </ Card.Body>
             </ Card>
         </div>
