@@ -41,6 +41,6 @@ const lessonSchema = new Schema({
   }
 });
 
-const Lesson = mongoose.model('Lesson', lessonSchema);
+const Post = mongoose.model('post', postSchema);
 
-module.exports = Lesson;
+module.exports = Post;

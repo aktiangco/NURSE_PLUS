@@ -1,11 +1,29 @@
+/* * {
+    background-color: gray; 
+} */
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 0;
-  margin: 0;
-  background-color: gray;
-  color: black;
-  text-align: center;
-  justify-content: center;
+    font-family: "Century Gothic", "CenturyGothic", "AppleGothic", sans-serif;
+    padding: 0;
+    margin: 0 auto;
+    background-color: gray;
+    color: black;
+    text-align: center;
+}
+.container {
+    width: auto;
+    height: auto;
+    padding: 15px;
+    margin: 10px;
+    font-family: "Century Gothic", "CenturyGothic", "AppleGothic", sans-serif;
+}
+.app-css{
+    padding: 0;
+    margin: 0 auto;
+    background-color: gray;
+    color: black;
+    text-align: center;
+    height: 100%; 
 }
 
 Link{
@@ -28,9 +46,36 @@ button:hover {
     background-color: rgb(18, 133, 133);
     font-family: 'Trirong', sans-serif;
     color: white;
-    
 }
 
-Link{
+.button{
+    background-color: inherit;
     text-decoration: none;
 }
+
+.button:hover {
+    padding: 10px;
+    background-color: rgb(18, 133, 133);
+    font-family: 'Trirong', sans-serif;
+    color: white;
+    border-radius: 10px;
+}
+
+
+.react-calendar { 
+    width: 500px;
+    max-width: 100%;
+    background-color: #fff;
+    color: #222;
+    border-radius: 8px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.125em;
+   }
+   .react-calendar__navigation button {
+    color: #6f48eb;
+    min-width: 44px;
+    background: none;
+    font-size: 16px;
+    margin-top: 8px;
+   }

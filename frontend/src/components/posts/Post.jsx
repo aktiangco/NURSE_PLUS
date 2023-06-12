@@ -2,10 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 
-const Lesson = (props) => {
+
+const Post = (props) => {
     return (
         <div>
-            <Card style={{ width: '18rem' }}>
+            <div>
+                
+            </div>
+            <Card style={{ width: '18rem'}} className="container">
                 <Card.Body>
                     <Card.Title>{props.data.title}</Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">
@@ -16,12 +20,14 @@ const Lesson = (props) => {
                     <Card.Text className="text-truncate">
                     {props.data.description}
                     </Card.Text>
-                    <Card.Link><Link to="/details">More info</Link></Card.Link>
-                    
+                    <Card.Link>
+                        <Link to="/details" className='button' style={{ textDecoration: 'none' }}>More info</Link>
+                    </Card.Link>
                 </Card.Body>
             </Card>
+
         </div>
     );
   };
   
-  export default Lesson;
+  export default Post;

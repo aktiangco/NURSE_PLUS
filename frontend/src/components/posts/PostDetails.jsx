@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 
-const LessonDetails = (props) => {
+const PostDetails = (props) => {
     return (
         <div>
             <h2>Lesson Details</h2>
@@ -33,4 +33,4 @@ const LessonDetails = (props) => {
     );
   };
   
-  export default LessonDetails;
+  export default PostDetails;

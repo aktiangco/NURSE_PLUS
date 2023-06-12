@@ -13,12 +13,13 @@ const MyCalendar = () => {
     };
     
     return (
-        <div className="MyCalendar">
-            <div>
-            
-                <Calendar value={date} onChange={handleDateChange}></Calendar>
+        <div>
+
+        <div className="calendar-container">
+            <Calendar value={date} onChange={handleDateChange}></Calendar>
             </div>
-        </div>
+            
+            </div>
     );
   };
   

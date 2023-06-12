@@ -9,8 +9,9 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Error from './components/Error';
 import Gallery from './components/Gallery';
-import Lesson from './components/lessons/Lesson';
-import LessonDetails from './components/lessons/LessonDetails'
+import Post from './components/posts/Post';
+import PostDetails from './components/posts/PostDetails';
+import NewPost from './components/posts/NewLesson';
 import './App.css';
 
 
@@ -19,7 +20,7 @@ import './App.css';
 
 const App = () => {
   return (
-    <div bg="dark">
+    <div className="app-css">
     <h1>Nurse Plus</h1>
       <NavBar />
       <Routes>
@@ -30,8 +31,9 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<NewUser />} /> 
         <Route path="/gallery" element={<Gallery />} />
-        <Route path="/lesson" element={<Lesson />} />
-        <Route path="/details" element={<LessonDetails />} />
+        <Route path="/post" element={<Post />} />
+        <Route path="/details" element={<PostDetails />} />
+        <Route path="/new-posts" element={<NewPost />} /> 
       </Routes>
       <Footer />
       </div>

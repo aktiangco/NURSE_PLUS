@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 const usersController = require('./controllers/users_controller.js')
 app.use('/users', usersController)
 // Lesson
-const lessonsController = require('./controllers/lessons_controller.js')
+const lessonsController = require('./controllers/posts_controller.js')
 app.use('/lessons', lessonsController)
 // Authentication
 const authenticationController = require('./controllers/authentication_controller.js')

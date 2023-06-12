@@ -1,4 +1,4 @@
-export const lessons = [
+export const postings = [
     {
         title: 'HeartCode BLS Skills',
         instructor: 'Jane Doe',
@@ -40,4 +40,4 @@ export const lessons = [
         date: '10/11/2023'
     },
 ]
-export default lessons
+export default postings

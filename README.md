@@ -77,12 +77,13 @@ In order to facilitate the improvement of nurses' skills and provide them with a
 
 - Structure and Guidance
   - Fellow classmate Marlon Baker
+  - [link](https://github.com/MarBakerswe)
 
 - webpack and babel reference:
   - [link](https://medium.com/age-of-awareness/setup-react-with-webpack-and-babel-5114a14a47e9#8b7c)
 
 - Calendar
-  - React Calendar created by ChatGPT
+  - [link](https://blog.logrocket.com/react-calendar-tutorial-build-customize-calendar/)
 
 - React Bootstrap
   - [link](https://medium.com/age-of-awareness/setup-react-with-webpack-and-babel-5114a14a47e9#8b7c)
