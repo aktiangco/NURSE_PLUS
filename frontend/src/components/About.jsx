@@ -4,20 +4,16 @@ import { Link } from 'react-router-dom';
 
 
 const About = () => {
-    // const aboutUsStyling = {
-    //     'width': 'auto',
-    //     'height': 'auto',
-    //     'padding': '15px',
-    //     'margin': '10px',
-    //     'fontFamily': ' Century Gothic,CenturyGothic,AppleGothic,sans-serif'
-
-
-    // }
+    const cardStyle = {
+        color: 'white',
+        backgroundColor: 'gray',
+        border: '1px black solid'
+      };
 
     return (
         <div>
             <div>
-            <Card className="container">
+            <Card className="container" style={cardStyle}>
                 <Card.Body>
                     <Card.Title className="font-weight-bold"><h1>About Us</h1></Card.Title>
                     <br />    
@@ -40,7 +36,7 @@ const About = () => {
                         We are committed to your success and growth as a nurse. Nurse_Plus is here to support you on your educational journey, providing the knowledge and skills you need to thrive in the ever-evolving field of healthcare. We value your feedback and are always available to address any questions or inquiries you may have.
                     </Card.Text> 
                     <Card.Text>
-                    <Link to="/contact"><button className="button" >Contact us</button></Link> today to join Nurse_Plus and take your nursing career to the next level!
+                    <Link to="/contact"><button className="button">Contact us</button></Link> today to join Nurse_Plus and take your nursing career to the next level!
                     </Card.Text>
                 </Card.Body>
             </Card>

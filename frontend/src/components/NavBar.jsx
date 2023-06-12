@@ -7,9 +7,9 @@ import Navbar from 'react-bootstrap/Navbar';
 
 const NavBar = () => {
     return (
-        <Navbar bg="dark" expand="lg" variant="dark">
-        <Container style={{ justifyContent: 'evenly' }}>
-          <Navbar.Brand>NavBar</Navbar.Brand>
+        <Navbar bg="dark" expand="lg" variant="dark" style={{  }}>
+            <Container style={{ justifyContent: 'evenly', padding: '0px', margin: '5px' }}>
+          <Navbar.Brand><h1 className="title">Nurse Plus</h1></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav " >
             <Nav className="me-auto " style={{ justifyContent: 'end' }}>

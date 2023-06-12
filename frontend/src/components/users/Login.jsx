@@ -20,10 +20,16 @@ const Login = () => {
 
         setValidated(true);
     };
+
+    const cardStyle = {
+        color: 'white',
+        backgroundColor: 'gray',
+        border: '1px black solid'
+      };
     
     return (
         <div>
-            <Card className="container">
+            <Card className="container" style={cardStyle}>
                 <Card.Body>
                     <Card.Title className="font-weight-bold"><h1>Login page</h1></Card.Title>
                     <br />    
