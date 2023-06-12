@@ -1,4 +1,19 @@
-# Getting Started with Create React App
+# NURSE_PLUS
+
+In order to facilitate the improvement of nurses' skills and provide them with additional educational opportunities, a class is being organized. The purpose of this class is to help nurses enhance their abilities and expand their knowledge.
+
+## Help Sources
+
+- Structure and Guidance
+  - Fellow classmate [Marlon Baker](https://github.com/MarBakerswe)
+- Compiler
+  - [webpack and babel reference](https://medium.com/age-of-awareness/setup-react-with-webpack-and-babel-5114a14a47e9#8b7c)
+- Calendar
+  - [Calendar](https://blog.logrocket.com/react-calendar-tutorial-build-customize-calendar/)
+- Styling
+  - [React Bootstrap](https://medium.com/age-of-awareness/setup-react-with-webpack-and-babel-5114a14a47e9#8b7c)
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -68,22 +83,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-# NURSE_PLUS
-
-In order to facilitate the improvement of nurses' skills and provide them with additional educational opportunities, a class is being organized. The purpose of this class is to help nurses enhance their abilities and expand their knowledge.
-
-# Help Sources
-
-- Structure and Guidance
-  - Fellow classmate Marlon Baker
-  - [link](https://github.com/MarBakerswe)
-
-- webpack and babel reference:
-  - [link](https://medium.com/age-of-awareness/setup-react-with-webpack-and-babel-5114a14a47e9#8b7c)
-
-- Calendar
-  - [link](https://blog.logrocket.com/react-calendar-tutorial-build-customize-calendar/)
-
-- React Bootstrap
-  - [link](https://medium.com/age-of-awareness/setup-react-with-webpack-and-babel-5114a14a47e9#8b7c)
