@@ -1,34 +1,40 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 
-const PostDetails = (props) => {
+const PostDetails = (posts) => {
     return (
         <div>
             <h2>Lesson Details</h2>
-            {/* <Card style={{ width: '18rem' }}>
+            <Card style={{width: '100%', height: 'auto'}}>
                 <Card.Body>
-                    <Card.Title>{props.data.title}</Card.Title>
+                    <Card.Title>
+                        <h4>Course:</h4>
+                        {posts.title}
+                    </Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">
-                        Instructor:{props.data.instructor}
-                        <br />
-                        Date:{props.data.date}
+                        Instructor:{posts.instructor}
+                        Date:{posts.date}
                     </Card.Subtitle>
                     <Card.Text >
-                    {props.data.description}
+                        <h4>Description:</h4>
+                    {posts.description}
                     </Card.Text>
                     <Card.Text >
-                    {props.data.certification}
+                        <h4>Certification:</h4>
+                    {posts.certification}
                     </Card.Text>
                     <Card.Text >
-                    {props.data.length}
+                        <h4>Course Legnth:</h4>
+                    {posts.length}
                     </Card.Text> 
                     <Card.Text >
-                    {props.data.price}
+                        <h4>Cost:</h4>
+                    {posts.price}
                     </Card.Text>
-                    <Card.Link href="#">More info</Card.Link>
+                   
                     
                 </Card.Body>
-            </Card> */}
+            </Card>
         </div>
     );
   };

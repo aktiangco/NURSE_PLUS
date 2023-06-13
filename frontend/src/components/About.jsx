@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const About = () => {
     const cardStyle = {
         color: 'white',
-        backgroundColor: 'gray',
+        backgroundColor: 'cornflowerblue',
         border: '1px black solid'
       };
 

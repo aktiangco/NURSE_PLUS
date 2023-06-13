@@ -19,3 +19,5 @@ user.get('/',  async (req, res) => {
 
 
 // * Show User
+
+module.exports = users;

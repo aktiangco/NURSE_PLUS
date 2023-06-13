@@ -12,6 +12,8 @@ In order to facilitate the improvement of nurses' skills and provide them with a
   - [Calendar](https://blog.logrocket.com/react-calendar-tutorial-build-customize-calendar/)
 - Styling
   - [React Bootstrap](https://react-bootstrap.netlify.app/)
+- Icons
+  - [React Bootstrap Icons](https://www.npmjs.com/package/react-bootstrap-icons)
 
 ## Getting Started with Create React App
 

@@ -8,7 +8,7 @@ import 'react-calendar/dist/Calendar.css';
 
 
 
-const PostList = require('../postings')
+// const PostList = require('../postings')
     
 const Gallery = () => {
     const [date, setDate] = useState(new Date());
@@ -19,7 +19,7 @@ const Gallery = () => {
 
     const cardStyle = {
         color: 'white',
-        backgroundColor: 'gray',
+        backgroundColor: 'cornflowerblue',
         border: '1px black solid'
       };
 
@@ -35,14 +35,16 @@ const Gallery = () => {
                     </Card.Text>
                     <Card.Text>
                         <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                            {
+                            <Post />
+                            {/* {
                                 PostList.postings.map((data, i) => {
                                     return (
-                                        
-                                        <Post data={data} key={i} />
+                                        <div>
+                                            <Post data={data} key={i} />
+                                        </div>
                                     )
                                 })
-                            }
+                            } */}
                         </div>
                     </Card.Text>
                 </ Card.Body>

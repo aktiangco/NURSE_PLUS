@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -22,7 +20,7 @@ const NewUser = () => {
     };
     const cardStyle = {
         color: 'white',
-        backgroundColor: 'gray',
+        backgroundColor: 'cornflowerblue',
         border: '1px black solid'
       };
 
@@ -120,7 +118,7 @@ const NewUser = () => {
                             feedbackType="invalid"
                             />
                         </Form.Group>
-                        <Button type="submit">Submit form</Button>
+                        <button className="button" type="submit">Submit form</button>
                         </Form>
                     </Card.Text>
                     

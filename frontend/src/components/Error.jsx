@@ -1,11 +1,13 @@
 import React from 'react';
+import Image from 'react-bootstrap/Image';
+import error from '../assets/404.jpg';
 
 
 function Error() {
     return (
         <main>
             <h1 className="text-danger">404: PAGE NOT FOUND</h1>
-            <img src="http://localhost:5000/images/kittykat.jpeg" alt="404"></img> {/* images */}
+            <Image src={error} alt="404" /> {/* images */}
                 <p >Oops, sorry, we can't find this page!</p>
         </main>
             );

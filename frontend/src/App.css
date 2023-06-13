@@ -1,8 +1,7 @@
-
 .app-css{
     padding: 0;
     margin: 0 auto;
-    background-color:rgb(18, 133, 133);
+    background-color:rgb(96, 227, 227);
     color: black;
     text-align: center;
     height: 100%; 
@@ -10,16 +9,22 @@
 .container {
     width: auto;
     height: auto;
+    min-height: 100%;
     padding: 15px;
     margin: 10px;
     font-family: "Century Gothic", "CenturyGothic", "AppleGothic", sans-serif;
 }
+.main-container{
+    height: 100vh;
+    min-height: 100%;
+    padding: 16px;
+}
 
 h1 {
- text-shadow: 10px 10px 10px rgba(45, 179, 231, 0.8);
+ text-shadow: 10px 10px 10px rgba(249, 249, 249, 0.8);
 }
 .title{
-    text-shadow: 10px 10px 10px rgba(18, 133, 133, 0.8);
+    text-shadow: 10px 10px 10px rgba(249, 249, 249, 0.8);
     color: rgb(45, 179, 231); 
 }
 
@@ -36,6 +41,7 @@ button {
     margin: 20px;
     border-radius: 10px;
     text-decoration: none;
+    border: 1px black solid;
 }
 
 button:hover {
@@ -64,10 +70,10 @@ button:hover {
 .react-calendar { 
     width: 500px;
     max-width: 100%;
-    background-color: rgb(18, 133, 133, 0.5);
+    background-color: white;
     color: #222;
     border-radius: 10px;
-    box-shadow: 10px 10px 10px rgba(45, 179, 231, 0.2);
+    box-shadow: 10px 10px 10px rgba(249, 249, 249, 0.8);
     line-height: 1.125em;
     border: 1px black solid;
    }
@@ -83,8 +89,19 @@ button:hover {
 
    .postList {
     background-color: #fff;
-    box-shadow: 10px 10px 10px rgba(45, 179, 231, 0.2);
+    box-shadow: 10px 10px 10px rgba(249, 249, 249, 0.8);
     line-height: 1.125em;
     border-radius: 10px;
    }
 
+.footer {
+    display: flex;
+    text-align: center;
+    justify-content: space-evenly;
+    background-color: #222;
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    /* position: fixed;
+    bottom: 0; */
+}

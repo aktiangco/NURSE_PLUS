@@ -22,19 +22,22 @@ const App = () => {
   return (
     <div className="app-css">
       <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="*" element={<Error />} /> 
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<NewUser />} /> 
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/post" element={<Post />} />
-        <Route path="/details" element={<PostDetails />} />
-        <Route path="/new-posts" element={<NewPost />} /> 
-      </Routes>
+      <div className="main-container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<Error />} /> 
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<NewUser />} /> 
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/post" element={<Post />} />
+          <Route path="/details" element={<PostDetails />} />
+          <Route path="/new-posts" element={<NewPost />} /> 
+        </Routes>
+      </div>
       <Footer />
+      
       </div>
   );
 }

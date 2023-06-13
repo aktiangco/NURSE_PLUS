@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -23,7 +22,7 @@ const Login = () => {
 
     const cardStyle = {
         color: 'white',
-        backgroundColor: 'gray',
+        backgroundColor: 'cornflowerblue',
         border: '1px black solid'
       };
     
@@ -71,7 +70,7 @@ const Login = () => {
                             </Form.Group>     
                         </Row>
                         
-                        <Button type="submit">Log in</Button>
+                        <button className="button" type="submit">Log in</button>
                         </Form>
                     </Card.Text>
                     <Card.Text>

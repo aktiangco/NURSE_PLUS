@@ -1,4 +1,3 @@
-//  Todo:
 // Creating a mongoose Shell
 // require mongoose 
 const mongoose = require('mongoose');
@@ -6,7 +5,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 // creating a shell
-const lessonSchema = new Schema({
+const postSchema = new Schema({
   title: {
     type: String,
     required: true
@@ -41,6 +40,6 @@ const lessonSchema = new Schema({
   }
 });
 
-const Post = mongoose.model('post', postSchema);
+const Post = mongoose.model('Post', postSchema); // Corrected model name to 'Post'
 
-module.exports = Post;
+module.exports = Post; // Corrected export variable to 'Post'

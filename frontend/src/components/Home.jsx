@@ -8,7 +8,7 @@ import schoolImage from '../assets/school.jpeg';
 const Home = () => {
     const cardStyle = {
       color: 'white',
-      backgroundColor: 'gray',
+      backgroundColor: 'cornflowerblue',
       border: '1px black solid'
     };
   

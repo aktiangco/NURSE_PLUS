@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 const Contact = () => {
     const cardStyle = {
         color: 'white',
-        backgroundColor: 'gray',
+        backgroundColor: 'cornflowerblue',
         border: '1px black solid'
       };
 
