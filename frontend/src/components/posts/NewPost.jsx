@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
-const EditPost = ({posts}) => {
+const NewPost = () => {
   const [validated, setValidated] = useState(false);
 
   const handleSubmit = (event) => {
@@ -16,12 +16,14 @@ const EditPost = ({posts}) => {
 
       setValidated(true);
   };
-    
+
+
+    // Todo useState, handleChange, handleSubmit
   return (
     <div>
       <Card>
         <Card.Body>
-          <Card.Title><h1>Edit Posts</h1></Card.Title>
+          <Card.Title><h1>New Posts</h1></Card.Title>
           <Card.Text>
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
               <Row className="mb-3">
@@ -31,7 +33,6 @@ const EditPost = ({posts}) => {
                     type="text" 
                     id="title" 
                     name="title"
-                    value={posts.title}
                     required />
                 </ Form.Group>
                 <Form.Group as={Col} controlId="validationCustom01">
@@ -40,7 +41,6 @@ const EditPost = ({posts}) => {
                     type="text" 
                     id="instructor" 
                     name="instructor"
-                    value={posts.instructor}
                     required />
                 </ Form.Group>
               </Row>
@@ -51,8 +51,7 @@ const EditPost = ({posts}) => {
                   <Form.Control 
                     type="text" 
                     id="length" 
-                    name="length"
-                    value={posts.length}                  
+                    name="length" 
                     required />
                       </ Form.Group>
                 <Form.Group as={Col} controlId="validationCustom01">
@@ -62,7 +61,6 @@ const EditPost = ({posts}) => {
                     id="price" 
                     name="price"
                     defaultValue={"$"}
-                    value={posts.price}
                     required />
                 </ Form.Group>
                 <Form.Group as={Col} controlId="validationCustom01">      
@@ -71,7 +69,6 @@ const EditPost = ({posts}) => {
                     type="date" 
                     id="date" 
                     name="date" 
-                    value={posts.date}
                     required />
                 </ Form.Group>
               </ Row>
@@ -83,7 +80,6 @@ const EditPost = ({posts}) => {
                     type="text" 
                     id="skills_testing" 
                     name="skills_testing" 
-                    value={posts.skills_testing}
                     required />
                   </ Form.Group>
                 <Form.Group as={Col} controlId="validationCustom01">
@@ -92,7 +88,6 @@ const EditPost = ({posts}) => {
                     type="text" 
                     id="certification" 
                     name="certification" 
-                    value={posts.certification}
                     required />
               </ Form.Group>
               </Row>
@@ -100,12 +95,11 @@ const EditPost = ({posts}) => {
               <Row>
                 <Form.Label htmlFor="description">Description:</Form.Label><br />
                 <Form.Control 
-                    as="textarea"
-                    id="description" 
-                    name="description" 
-                    value={posts.description}
-                    style={{height: '200px'}}
-                    required>
+                  as="textarea"
+                  id="description" 
+                  name="description" 
+                  style={{height: '200px'}}
+                  required>
                 </Form.Control>
               </Row>
               <br />
@@ -118,4 +112,4 @@ const EditPost = ({posts}) => {
   );
 };
 
-export default EditPost;
+export default NewPost;

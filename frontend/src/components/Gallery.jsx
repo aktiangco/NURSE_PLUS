@@ -1,4 +1,4 @@
-import React , { useState }from 'react';
+import React , { useState, useEffect }from 'react';
 import Post from './posts/Post';
 // import Calendar from './MyCalendar'
 import { Link } from 'react-router-dom';
@@ -7,11 +7,26 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
 
-
-// const PostList = require('../postings')
     
 const Gallery = () => {
     const [date, setDate] = useState(new Date());
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        fetchPosts()
+          .then((data) => setPosts(data))
+          .catch((error) => console.error(error));
+      }, []);
+    
+      const fetchPosts = async () => {
+        try {
+          const response = await fetch('/api/posts'); // Replace with your API endpoint
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          throw new Error('Error fetching posts');
+        }
+      };
 
     const handleDateChange = (newDate) => {
         setDate(newDate);
@@ -21,7 +36,10 @@ const Gallery = () => {
         color: 'white',
         backgroundColor: 'cornflowerblue',
         border: '1px black solid'
-      };
+    };
+
+    
+
 
     return (
         <div>
@@ -35,16 +53,7 @@ const Gallery = () => {
                     </Card.Text>
                     <Card.Text>
                         <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                            <Post />
-                            {/* {
-                                PostList.postings.map((data, i) => {
-                                    return (
-                                        <div>
-                                            <Post data={data} key={i} />
-                                        </div>
-                                    )
-                                })
-                            } */}
+                            <Post posts={posts} />
                         </div>
                     </Card.Text>
                 </ Card.Body>

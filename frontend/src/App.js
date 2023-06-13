@@ -11,7 +11,8 @@ import Error from './components/Error';
 import Gallery from './components/Gallery';
 import Post from './components/posts/Post';
 import PostDetails from './components/posts/PostDetails';
-import NewPost from './components/posts/NewLesson';
+import NewPost from './components/posts/NewPost';
+import EditPost from './components/posts/EditPost';
 import './App.css';
 
 
@@ -34,6 +35,7 @@ const App = () => {
           <Route path="/post" element={<Post />} />
           <Route path="/details" element={<PostDetails />} />
           <Route path="/new-posts" element={<NewPost />} /> 
+          <Route path='/editPost' element={<EditPost />} />
         </Routes>
       </div>
       <Footer />

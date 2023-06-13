@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 
-const Post = (posts) => {
+const Post = ({posts}) => {
     const cardStyle = {
         color: 'black',
         backgroundColor: 'white',
@@ -24,9 +24,9 @@ const Post = (posts) => {
                                 {posts.description}
                             </Card.Text>
                             <Card.Link>
-                                <Link>
+                                <Link to='/details'>
                                     {/* Todo: path */}
-                                    <button className="button" href={`/details/${posts._id}`}>More info</button>
+                                    <button className="button" >More info</button>
                                 </Link>
                             </Card.Link>
                         </Card.Body>
