@@ -4,8 +4,6 @@ In order to facilitate the improvement of nurses' skills and provide them with a
 
 ## Help Sources
 
-- Structure and Guidance
-  - Fellow classmate [Marlon Baker](https://github.com/MarBakerswe)
 - Compiler
   - [webpack and babel reference](https://medium.com/age-of-awareness/setup-react-with-webpack-and-babel-5114a14a47e9#8b7c)
 - Calendar
@@ -14,6 +12,10 @@ In order to facilitate the improvement of nurses' skills and provide them with a
   - [React Bootstrap](https://react-bootstrap.netlify.app/)
 - Icons
   - [React Bootstrap Icons](https://www.npmjs.com/package/react-bootstrap-icons)
+- MongoDB connection
+  - [The Net Ninja via youtube](https://www.youtube.com/@NetNinja)
+- Helped from
+  - [Marlon Baker](https://github.com/MarBakerswe)
 
 ## Getting Started with Create React App
 

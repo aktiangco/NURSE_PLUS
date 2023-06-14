@@ -6,8 +6,6 @@ import Card from 'react-bootstrap/Card';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
-
-    
 const Gallery = () => {
     const [date, setDate] = useState(new Date());
     const [posts, setPosts] = useState([]);
@@ -20,7 +18,7 @@ const Gallery = () => {
     
       const fetchPosts = async () => {
         try {
-          const response = await fetch('/api/posts'); // Replace with your API endpoint
+          const response = await fetch('/posts');
           const data = await response.json();
           return data;
         } catch (error) {
@@ -38,9 +36,6 @@ const Gallery = () => {
         border: '1px black solid'
     };
 
-    
-
-
     return (
         <div>
              <Card className="container" style={cardStyle}>
@@ -53,7 +48,9 @@ const Gallery = () => {
                     </Card.Text>
                     <Card.Text>
                         <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                            <Post posts={posts} />
+                            {posts.map((post) => (
+                                <Post key={post.id} posts={posts} />
+                            ))}
                         </div>
                     </Card.Text>
                 </ Card.Body>

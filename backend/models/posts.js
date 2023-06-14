@@ -42,4 +42,4 @@ const postSchema = new Schema({
 
 const Post = mongoose.model('Post', postSchema); // Corrected model name to 'Post'
 
-module.exports = Post; // Corrected export variable to 'Post'
+module.exports = Post // Corrected export variable to 'Post'

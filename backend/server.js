@@ -1,49 +1,46 @@
 // DEPENDENCIES
 const express = require('express');
-const methodOverride = require('method-override');
-const mongoose = require('mongoose');
-
-// CONFIGURATION
+const cors = require('cors');
+const bodyParser = require('body-parser');
 require('dotenv').config();
+const db = require('./config/db');
 
 const app = express(); // Creating Express app
+const PORT = process.env.PORT || 8080; // Using Port 8080
 
-const PORT = process.env.PORT; // Using Port 3000
-const MONGODB = process.env.MONGODB_URI; // Connecting to MongoDB
-
-// MIDDLEWARE
-app.set('views', __dirname + '/views'); // double underscore "__dirname" = dunder-score
-app.set('view engine', 'jsx');
-app.engine('jsx', require('express-react-views').createEngine());
-app.use(express.static('public')); // Setup serving static assets
-app.use(express.urlencoded({ extended: true })); // Send our POST request
-app.use(methodOverride('_method')); // Allows to override form default
+// Express Settings
+app.use(cors());
+app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // ROUTES
 app.get('/', (req, res) => {
-  res.send('Welcome to Nurse_Plus');
+  console.log('Welcome to Nurse_Plus API');
+  res.send('Welcome to Nurse_Plus API');
 });
 
-// // User
-// const usersController = require('./controllers/users_controller.js');
-// app.use('/users', usersController);
-// Post
+// TODO
+// User
+// app.use('/users', require('./controllers/users_controller.js'));
 
-app.use('/posts', require('./controllers/posts_controller.js'));
-// // Authentication
-// const authenticationController = require('./controllers/authentication_controller.js');
-// app.use('/auth', authenticationController);
+// Post
+const postsRouter = require('./controllers/posts_controller');
+app.use('/posts', postsRouter);
+
+// TODO
+// Authentication
+// app.use('/auth', require('./controllers/authentication_controller.js'));
 
 // 404 Page
-app.get('*', (req, res) => {
-  res.render('error'); // 404 Not Found
+app.use((req, res, next) => {
+  res.status(404).json({ error: 'Not Found' });
 });
 
-// LISTEN to MONGO 
-mongoose.connect(MONGODB, { useNewUrlParser: true, useUnifiedTopology: true })
+// LISTEN to MONGO
+db.connect()
   .then(() => {
-    console.log('Connected to MongoDB:', MONGODB);
-    // LISTEN to local
+    console.log('Connected to MongoDB');
     app.listen(PORT, () => {
       console.log('Server is listening on port', PORT);
     });
