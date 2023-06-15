@@ -33,7 +33,7 @@ const App = () => {
           <Route path="/signup" element={<NewUser />} /> 
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/post" element={<Post />} />
-          <Route path="/details" element={<PostDetails />} />
+          <Route path="/details/:postId" element={<PostDetails />} />
           <Route path="/new-posts" element={<NewPost />} /> 
           <Route path='/editPost' element={<EditPost />} />
         </Routes>

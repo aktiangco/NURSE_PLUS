@@ -8,7 +8,6 @@ const connect = async () => {
       useUnifiedTopology: true,
       // Remove the useFindAndModify and useCreateIndex options
     });
-    console.log('MongoDB connected.');
   } catch (error) {
     console.error('Error connecting to MongoDB:', error);
     process.exit(1);

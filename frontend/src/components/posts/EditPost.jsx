@@ -1,11 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
-const EditPost = ({posts}) => {
+const EditPost = () => {
   const [validated, setValidated] = useState(false);
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+      fetchPosts()
+        .then((data) => setPosts(data))
+        .catch((error) => console.error(error));
+  }, []);
+
+  const fetchPosts = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/posts');
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        throw new Error('Error fetching posts');
+      }
+  };
 
   const handleSubmit = (event) => {
       const form = event.currentTarget;

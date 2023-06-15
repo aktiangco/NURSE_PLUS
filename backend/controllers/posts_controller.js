@@ -2,23 +2,11 @@ const express = require('express');
 const { db } = require('../models/posts');
 const router = express.Router();
 const Post = require('../models/posts');
+const mongoose = require('mongoose');
 
-// // Index route
-// router.get('/', (req, res) => {
-//   console.log('posts index');
-//   Post.find()
-//   .then((posts) => {
-//       res.json(posts);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       res.status(500).send('Internal Server Error');
-//     });
-// });
 
 // Index route
 router.get('/', (req, res) => {
-  console.log('posts index');
   Post.find()
     .sort({ date: 1 })
     .then((posts) => {
@@ -30,69 +18,81 @@ router.get('/', (req, res) => {
     });
 });
 
+
+// * Show route
+router.get('/:id', (req, res) => {
+  console.log(req.params)
+  if (mongoose.Types.ObjectId.isValid(req.params.id)) {
+    Post.findById(req.params.id)
+      .then(post => {
+        console.log(post)
+        if (post) {
+          res.json(post);
+        } else {
+          res.status(404).json({ error: 'Post not found' });
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).send({ error: 'Internal Server Error' });
+      });
+  } else {
+    res.status(400).json({ error: 'Invalid post ID' });
+  }
+});
+
+
 // // * Create route
-// posts.post('/', (req, res) => {
-//     const newPost = req.body;
-//     Post.create(newPost)
+// router.post('/posts', (req, res) => {
+//   const newPost = req.body;
+//   Post.create(newPost)
 //     .then(createdPost => {
-//         res.redirect(`/posts/${createdPost._id}`);
+//       res.redirect(`/posts/${createdPost._id}`);
 //     })
 //     .catch(err => {
-//         console.log(err);
-//         res.status(500).send('Internal Server Error');
+//       console.log(err);
+//       res.status(500).send('cannot create route / POST');
 //     });
 // });
 
-// // * New Page
-// posts.get('/new', (req, res) => {
-//     res.render('posts/new')
-// })
-
-// // * Show route
-// posts.get('/:id', (req, res) => {
-//     Post.findById({_id: req.params.id})
-//     // .populate('reservation') // Todo: populate reservation
-//     .then(post => {
-//       res.render('posts/show', {post})
-//     })
-//       .catch(err => {
-//         console.log('err', err)
-//             res.render('error')
-//       });
+// // New Page
+// router.get('/', (req, res) => {
+//   res.render('posts/new');
 // });
+
   
 // // * Update route
-// posts.put('/:id', (req, res) => {
+// router.put('/:id', (req, res) => {
 //       Post.findByIdAndUpdate(req.params.id, req.body)
 //         .then(() => {
 //             res.redirect(`/posts/${req.params.id}`)
 //         })
 //         .catch(err => {
 //             console.log('err', err)
-//             res.render('error')
+//             res.status(500).send({error: 'Update Route'});
 //       })
 //     })
 
 // // * EDIT button
-// posts.get('/:id/edit', (req, res) => {
+// router.get('/:id/edit', (req, res) => {
 //     Post.findById(req.params.id)
 //     .then(post => {
 //         res.render('posts/edit', { post })
 //     })
 //     .catch(err => {
-//         res.render('error')
+//       res.status(500).send({error: 'Edit Route'});
 //     })
 // })
   
 // // * DELETE button
-// posts.delete('/:id', (req, res) => {
+// router.delete('/:id', (req, res) => {
 //     Post.findByIdAndDelete(req.params.id)
 //       .then(() => {
 //           res.redirect('/posts')
 //       })
 //       .catch(err => {
 //           console.log('err', err)
-//           res.render('error')
+//           res.status(500).send({error: 'Delete Route'});
 //       }) 
 //   })
   
