@@ -7,6 +7,7 @@ const connect = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       // Remove the useFindAndModify and useCreateIndex options
+      serverSelectionTimeoutMS: 30000,
     });
   } catch (error) {
     console.error('Error connecting to MongoDB:', error);

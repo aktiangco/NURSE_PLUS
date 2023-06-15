@@ -1,7 +1,5 @@
 import React , { useState}from 'react';
 import Post from './posts/Post';
-// import Calendar from './MyCalendar'
-import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
@@ -39,9 +37,7 @@ const Gallery = ({post}) => {
                        {postMap}
                     </Card.Text>
                 </ Card.Body>
-            </ Card>
-            
-            <Link to="/new-posts">New Lessons</Link>
+            </ Card> 
         </div>
     );
   };

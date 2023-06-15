@@ -54,12 +54,53 @@ const PostDetails = () => {
                         <h4>Cost:</h4>
                         ${post.price}.00
                     </Card.Text>
+                  <Card.Text>
+                      {/* Path to do */}
+                        <Link to={`/reserveUser/${post._id}`}> 
+                          <button className="btn-success">Reserve a Spot</button>
+                          <button className="btn-success">cancel Spot</button>
+                        </Link> 
+                    </Card.Text>
                     <Card.Text>
-                        <Link to="/editPost">
-                            {/* Edit route */}
+                        <Link to={`/editPost/${post._id}`}>
                             <button>edit</button>
-                        </Link>
-                        
+                        </Link> 
+                    </Card.Text>
+                </Card.Body>
+          </Card>
+          <br />
+          {/* TODO for User */}
+          <Card key={post._id} post={post} style={{ width: '100%', height: 'auto' }}>
+                <Card.Body>
+                    <Card.Title>
+                    <h2>Students Reservation List</h2>
+                    </Card.Title>
+                    <Card.Subtitle className="mb-2 text-muted">
+                      Welcome, students! Let's learn <b>{post.title}</b> and grow together!
+                    </Card.Subtitle>
+                  <Card.Text>
+                      <h3>Student name: </h3>
+                      <h3>Students List:</h3>
+                      <ul>
+                          <li>names</li>
+                          <li>names</li>
+                          <li>names</li>
+                          <li>names</li>
+                      </ul>
+                    </Card.Text>
+                   
+                    
+                  <Card.Text>
+                      {/* Path to do */}
+                        <Link to={`/reserveUser/${post._id}`}> 
+                          <button className="btn-success">Reserve a Spot</button>
+                          <button className="btn-success">cancel Spot</button>
+                        </Link> 
+                    </Card.Text>
+                    <Card.Text>
+                        <Link to={`/gallery`}>
+                            <button>Back</button>
+                        </Link> 
                     </Card.Text>
                 </Card.Body>
             </Card>

@@ -3,9 +3,18 @@ import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 const NavBar = () => {
+    const linkStyle = {
+        textDecoration: 'none'
+    }
+    const dropdownStyle = {
+        color: 'white',
+        backgroundColor: 'black',
+        padding: '5px'
+        }
+
     return (
         <Navbar bg="dark" expand="lg" variant="dark" >
             <Container style={{ justifyContent: 'evenly', padding: '0px', margin: '5px' }}>
@@ -13,19 +22,28 @@ const NavBar = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav"/>
             <Navbar.Collapse id="basic-navbar-nav ">
                 <Nav className="me-auto ">
-                    <Link className="nav-item active" style={{ textDecoration: 'none' }} to="/">
+                    <Link className="nav-item active" style={linkStyle} to="/">
                         <button className="nav-link rounded">Home</button>
                     </Link>
-                    <Link class="nav-item" style={{ textDecoration: 'none' }} to="/gallery">
-                        <button className="nav-link rounded">Lessons</button>
-                    </Link>
-                    <Link class="nav-item" style={{ textDecoration: 'none' }} to="/about">
+                    <NavDropdown bg="dark"variant="dark "title="Course" id="basic-nav" className="nav-item active">
+                            <NavDropdown.Item className="nav-item active" style={dropdownStyle}>
+                            <Link className="nav-item" style={linkStyle} to="/gallery">
+                            <button className="nav-link rounded">Lessons</button>
+                            </Link>
+                        </NavDropdown.Item>
+                        <NavDropdown.Item className="nav-item active" style={dropdownStyle}>
+                            <Link className="nav-item" style={linkStyle} to="/newPost">
+                            <button className="nav-link rounded">New course</button>
+                            </Link>
+                        </NavDropdown.Item>
+                    </NavDropdown>    
+                    <Link className="nav-item" style={linkStyle}  to="/about">
                         <button className="nav-link rounded">About Us</button>
                     </Link>
-                    <Link class="nav-item" style={{ textDecoration: 'none' }} to="/contact">
+                    <Link className="nav-item" style={linkStyle}  to="/contact">
                     <button className="nav-link rounded">Contact Us</button>
                     </Link>
-                    <Link class="nav-item" style={{ textDecoration: 'none' }} to="/login">
+                    <Link className="nav-item" style={linkStyle} to="/login">
                         <button className="nav-link rounded">Log in</button>
                     </Link>
                 </Nav>
@@ -35,4 +53,5 @@ const NavBar = () => {
     );
   };
   
-  export default NavBar;
+export default NavBar;
+  

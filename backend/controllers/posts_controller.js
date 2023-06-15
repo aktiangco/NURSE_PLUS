@@ -1,9 +1,7 @@
 const express = require('express');
-const { db } = require('../models/posts');
 const router = express.Router();
 const Post = require('../models/posts');
 const mongoose = require('mongoose');
-
 
 // Index route
 router.get('/', (req, res) => {
@@ -14,18 +12,16 @@ router.get('/', (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).send('Internal Server Error');
+      res.status(500).json('Internal Server Error');
     });
 });
 
 
 // * Show route
 router.get('/:id', (req, res) => {
-  console.log(req.params)
   if (mongoose.Types.ObjectId.isValid(req.params.id)) {
     Post.findById(req.params.id)
       .then(post => {
-        console.log(post)
         if (post) {
           res.json(post);
         } else {
@@ -34,24 +30,24 @@ router.get('/:id', (req, res) => {
       })
       .catch(err => {
         console.log(err);
-        res.status(500).send({ error: 'Internal Server Error' });
+        res.status(500).json({ error: 'Internal Server Error' });
       });
   } else {
     res.status(400).json({ error: 'Invalid post ID' });
   }
 });
 
+// TODO // * Create Route
+// router.post('/', (req, res) => {
+//   const postData = req.body;
 
-// // * Create route
-// router.post('/posts', (req, res) => {
-//   const newPost = req.body;
-//   Post.create(newPost)
-//     .then(createdPost => {
-//       res.redirect(`/posts/${createdPost._id}`);
+//   Post.create(postData)
+//     .then(newPost => {
+//       res.status(201).json(newPost);
 //     })
 //     .catch(err => {
 //       console.log(err);
-//       res.status(500).send('cannot create route / POST');
+//       res.status(500).json({ error: 'Could not create New Data' });
 //     });
 // });
 
@@ -61,17 +57,17 @@ router.get('/:id', (req, res) => {
 // });
 
   
-// // * Update route
-// router.put('/:id', (req, res) => {
-//       Post.findByIdAndUpdate(req.params.id, req.body)
-//         .then(() => {
-//             res.redirect(`/posts/${req.params.id}`)
-//         })
-//         .catch(err => {
-//             console.log('err', err)
-//             res.status(500).send({error: 'Update Route'});
-//       })
-//     })
+// * Update route
+router.put('/:id', (req, res) => {
+      Post.findByIdAndUpdate(req.params.id, req.body)
+        .then(() => {
+            res.redirect(`/posts/${req.params.id}`)
+        })
+        .catch(err => {
+            console.log('err', err)
+            res.status(500).send({error: 'Update Route'});
+      })
+    })
 
 // // * EDIT button
 // router.get('/:id/edit', (req, res) => {
@@ -84,16 +80,17 @@ router.get('/:id', (req, res) => {
 //     })
 // })
   
-// // * DELETE button
-// router.delete('/:id', (req, res) => {
-//     Post.findByIdAndDelete(req.params.id)
-//       .then(() => {
-//           res.redirect('/posts')
-//       })
-//       .catch(err => {
-//           console.log('err', err)
-//           res.status(500).send({error: 'Delete Route'});
-//       }) 
-//   })
+// Delete route
+router.delete('/:id', (req, res) => {
+  Post.findByIdAndDelete(req.params.id)
+    .then((deletePost) => {
+      res.status(303).redirect('/posts');
+    })
+    .catch(err => {
+      console.log('err', err);
+      res.status(500).json({ error: 'Delete route failed' });
+    });
+});
   
+
 module.exports = router;

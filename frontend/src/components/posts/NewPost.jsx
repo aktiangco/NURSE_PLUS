@@ -1,31 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
 const NewPost = () => {
-  const [validated, setValidated] = useState(false);
+//   const [validated, setValidated] = useState(false);
 
-  const handleSubmit = (event) => {
-      const form = event.currentTarget;
-      if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-      }
+//   const handleSubmit = (event) => {
+//       const form = event.currentTarget;
+//       if (form.checkValidity() === false) {
+//       event.preventDefault();
+//       event.stopPropagation();
+//       }
 
-      setValidated(true);
-  };
+//       setValidated(true);
+//   };
+// <Form noValidate validated={validated} onSubmit={handleSubmit}></Form>
 
-
-    // Todo useState, handleChange, handleSubmit
+//     // Todo useState, handleChange, handleSubmit
   return (
     <div>
       <Card>
         <Card.Body>
           <Card.Title><h1>New Posts</h1></Card.Title>
           <Card.Text>
-            <Form noValidate validated={validated} onSubmit={handleSubmit}>
+            <Form >
               <Row className="mb-3">
                 <Form.Group as={Col} controlId="validationCustom01">  
                   <Form.Label htmlFor="title">Title:</Form.Label>
