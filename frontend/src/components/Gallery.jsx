@@ -18,11 +18,6 @@ const Gallery = ({post}) => {
         height: '100%'
     };
 
-    const postMap = 
-        <div className="col-sm-6 col-md-4 col-lg-3" >
-                <Post />
-            </ div>
-
     return (
         <div>
              <Card className="container" style={cardStyle}>
@@ -34,7 +29,7 @@ const Gallery = ({post}) => {
                         </div>
                     </Card.Text>
                     <Card.Text >
-                       {postMap}
+                        <Post />
                     </Card.Text>
                 </ Card.Body>
             </ Card> 

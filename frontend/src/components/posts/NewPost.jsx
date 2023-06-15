@@ -1,27 +1,41 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 
 const NewPost = () => {
-//   const [validated, setValidated] = useState(false);
+  const navigate = useNavigate()
 
-//   const handleSubmit = (event) => {
-//       const form = event.currentTarget;
-//       if (form.checkValidity() === false) {
-//       event.preventDefault();
-//       event.stopPropagation();
-//       }
+	const [post, setPost] = useState({
+		title: '',
+		instructor: '',
+		description: '',
+		length: '',
+    skills_testing: '',
+    price: '',
+    certification: '',
+    date: ''
+  })
 
-//       setValidated(true);
-//   };
-// <Form noValidate validated={validated} onSubmit={handleSubmit}></Form>
+	async function handleSubmit(e) {
+		e.preventDefault()
 
-//     // Todo useState, handleChange, handleSubmit
+		await fetch(`http://localhost:8080/posts`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(post)
+		})
+
+		navigate(`/details/${post._id}`)
+	}
+
   return (
     <div>
-      <Card>
+      <Card onSubmit={handleSubmit}>
         <Card.Body>
           <Card.Title><h1>New Posts</h1></Card.Title>
           <Card.Text>
@@ -33,6 +47,7 @@ const NewPost = () => {
                     type="text" 
                     id="title" 
                     name="title"
+                    onChange={e => setPost({ ...post, title: e.target.value })}
                     required />
                 </ Form.Group>
                 <Form.Group as={Col} controlId="validationCustom01">
@@ -41,6 +56,7 @@ const NewPost = () => {
                     type="text" 
                     id="instructor" 
                     name="instructor"
+                    onChange = { e => setPost({ ...post, instructor: e.target.value })}
                     required />
                 </ Form.Group>
               </Row>
@@ -51,7 +67,8 @@ const NewPost = () => {
                   <Form.Control 
                     type="text" 
                     id="length" 
-                    name="length" 
+                    name="length"
+                    onChange = { e => setPost({ ...post, length: e.target.value })}
                     required />
                       </ Form.Group>
                 <Form.Group as={Col} controlId="validationCustom01">
@@ -60,6 +77,7 @@ const NewPost = () => {
                     type="text" 
                     id="price" 
                     name="price"
+                    onChange = { e => setPost({ ...post, price: e.target.value })}
                     defaultValue={"$"}
                     required />
                 </ Form.Group>
@@ -68,7 +86,8 @@ const NewPost = () => {
                   <Form.Control 
                     type="date" 
                     id="date" 
-                    name="date" 
+                    name="date"
+                    onChange={e => setPost({ ...post, date: e.target.value })}
                     required />
                 </ Form.Group>
               </ Row>
@@ -79,7 +98,8 @@ const NewPost = () => {
                   <Form.Control 
                     type="text" 
                     id="skills_testing" 
-                    name="skills_testing" 
+                    name="skills_testing"
+                    onChange={e => setPost({ ...post, skills_testing: e.target.value })}
                     required />
                   </ Form.Group>
                 <Form.Group as={Col} controlId="validationCustom01">
@@ -88,6 +108,7 @@ const NewPost = () => {
                     type="text" 
                     id="certification" 
                     name="certification" 
+                    onChange = { e => setPost({ ...post, certification: e.target.value })}
                     required />
               </ Form.Group>
               </Row>
@@ -98,6 +119,7 @@ const NewPost = () => {
                   as="textarea"
                   id="description" 
                   name="description" 
+                  onChange = { e => setPost({ ...post, description: e.target.value })}
                   style={{height: '200px'}}
                   required>
                 </Form.Control>

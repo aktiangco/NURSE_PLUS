@@ -81,12 +81,14 @@ const PostDetails = () => {
                   <Card.Text>
                       <h3>Student name: </h3>
                       <h3>Students List:</h3>
-                      <ul>
+                      <div  >
+                      <ul style={{listStyle: 'none'}}>
                           <li>names</li>
                           <li>names</li>
                           <li>names</li>
                           <li>names</li>
                       </ul>
+                      </div>
                     </Card.Text>
                    
                     

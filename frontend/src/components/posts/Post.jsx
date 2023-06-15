@@ -2,7 +2,7 @@ import React , { useState, useEffect }from 'react';
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 
-const Post = () => { 
+const Post = (data) => { 
     const [posts, setPosts] = useState([]);
     
     const fetchPosts = async () => {
@@ -28,9 +28,7 @@ const Post = () => {
         width: '18rem'
     };
 
-    return (
-        <div>
-            {posts.map((post) => (                               
+    let postFormatted = posts.map((post) => (                               
                             
             <Card key={post._id} post={post} style={cardStyle} className="container postList">
                 <Card.Body>
@@ -45,13 +43,16 @@ const Post = () => {
                     </Card.Text>
                     <Card.Link>
                         <Link to={`/details/${post._id}`}>
-
                             <button className="button" >More info</button>
                         </Link>
                     </Card.Link>
                 </Card.Body>
                 </Card>
-                ))}    
+                ))
+
+    return (
+        <div className="row">
+            {postFormatted}
         </div>
     );
   };

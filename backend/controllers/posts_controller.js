@@ -37,24 +37,19 @@ router.get('/:id', (req, res) => {
   }
 });
 
-// TODO // * Create Route
-// router.post('/', (req, res) => {
-//   const postData = req.body;
-
-//   Post.create(postData)
-//     .then(newPost => {
-//       res.status(201).json(newPost);
-//     })
-//     .catch(err => {
-//       console.log(err);
-//       res.status(500).json({ error: 'Could not create New Data' });
-//     });
-// });
-
-// // New Page
-// router.get('/', (req, res) => {
-//   res.render('posts/new');
-// });
+// * Create Route
+router.post('/', async (req, res) => {
+  try {
+    const collection = await db.collection('posts');
+    const newDocument = req.body;
+    newDocument.date = new Date();
+    const result = await collection.insertOne(newDocument);
+    res.status(204).send(result);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
   
 // * Update route
@@ -68,17 +63,6 @@ router.put('/:id', (req, res) => {
             res.status(500).send({error: 'Update Route'});
       })
     })
-
-// // * EDIT button
-// router.get('/:id/edit', (req, res) => {
-//     Post.findById(req.params.id)
-//     .then(post => {
-//         res.render('posts/edit', { post })
-//     })
-//     .catch(err => {
-//       res.status(500).send({error: 'Edit Route'});
-//     })
-// })
   
 // Delete route
 router.delete('/:id', (req, res) => {
