@@ -32,7 +32,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<Error />} /> 
           <Route path="/gallery" element={<Gallery />} />
-          <Route path="/newPost" element={<NewPost />} /> 
+          <Route path="/newPost/new" element={<NewPost />} /> 
           <Route path="/post" element={<Post />} />
           <Route path="/viewPost/:postId" element={<ViewPost />} />
           <Route path='/editPost/:postId' element={<EditPost />} />

@@ -32,7 +32,7 @@ const NavBar = () => {
                             </Link>
                         </NavDropdown.Item>
                         <NavDropdown.Item className="nav-item active" style={dropdownStyle}>
-                            <Link className="nav-item" style={linkStyle} to="/newPost">
+                            <Link className="nav-item" style={linkStyle} to="/newPost/new">
                             <button className="nav-link rounded">New course</button>
                             </Link>
                         </NavDropdown.Item>

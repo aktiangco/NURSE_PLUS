@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/users');
-const mongoose = require('mongoose');
+mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
-// Index route
+// * Index route
 router.get('/', (req, res) => {
   User.find()
     .sort({ _id: 1 })
@@ -15,6 +16,25 @@ router.get('/', (req, res) => {
       res.status(500).json('Internal Server Error');
     });
 });
+
+// TODO: fix this route
+router.post('/', async (req, res) => {
+    try {
+      const { password, ...rest } = req.body;
+      const hashedPassword = await bcrypt.hash(password, 10);
+      const user = new User({
+        ...rest,
+        role: 'reviewer', // Restricting access up as an admin
+        passwordDigest: hashedPassword
+      });
+  
+      await user.save();
+      res.json(user);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Cannot create user' });
+    }
+  });
 
 // * Show route
 router.get('/:id', (req, res) => {

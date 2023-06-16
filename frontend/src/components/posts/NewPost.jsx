@@ -30,7 +30,7 @@ const NewPost = () => {
 			body: JSON.stringify(post)
 		})
 
-		navigate(`/viewPost/${post._id}`)
+		navigate(`/gallery`)
   }
   
   const cardStyle = {
@@ -87,7 +87,6 @@ const NewPost = () => {
                     id="price" 
                     name="price"
                     onChange = { e => setPost({ ...post, price: e.target.value })}
-                    defaultValue={"$"}
                     required />
                 </ Form.Group>
                 <Form.Group as={Col} controlId="validationCustom01">      
@@ -134,7 +133,7 @@ const NewPost = () => {
                 </Form.Control>
               </Row>
               <br />
-              <button type="submit" className="button" style={{padding: '10px'}}>Create</button>
+              <button type="submit" className="button" style={{padding: '10px', backgroundColor: 'yellowgreen'}}>Create New Lesson</button>
             </ Form>
           </Card.Text>
         </Card.Body>
