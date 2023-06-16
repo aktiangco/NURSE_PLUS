@@ -20,9 +20,8 @@ app.get('/', (req, res) => {
   res.send('Welcome to Nurse_Plus API');
 });
 
-// TODO
 // User
-// app.use('/users', require('./controllers/users_controller.js'));
+app.use('/users', require('./controllers/users_controller.js'));
 
 // Post
 const postsRouter = require('./controllers/posts_controller');

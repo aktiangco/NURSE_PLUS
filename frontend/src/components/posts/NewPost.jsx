@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const NewPost = () => {
   const navigate = useNavigate()
@@ -30,12 +30,21 @@ const NewPost = () => {
 			body: JSON.stringify(post)
 		})
 
-		navigate(`/details/${post._id}`)
-	}
+		navigate(`/viewPost/${post._id}`)
+  }
+  
+  const cardStyle = {
+    color: 'white',
+    backgroundColor: 'cornflowerblue',
+    border: '1px black solid',
+    width: '100%',
+    height: 'auto'
+  };
+
 
   return (
     <div>
-      <Card onSubmit={handleSubmit}>
+      <Card onSubmit={handleSubmit} className="container" style={cardStyle}>
         <Card.Body>
           <Card.Title><h1>New Posts</h1></Card.Title>
           <Card.Text>

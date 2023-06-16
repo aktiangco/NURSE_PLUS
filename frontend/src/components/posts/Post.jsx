@@ -42,7 +42,7 @@ const Post = (data) => {
                         {post.description}
                     </Card.Text>
                     <Card.Link>
-                        <Link to={`/details/${post._id}`}>
+                        <Link to={`/viewPost/${post._id}`}>
                             <button className="button" >More info</button>
                         </Link>
                     </Card.Link>

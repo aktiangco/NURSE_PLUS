@@ -35,7 +35,7 @@ const EditPost = () => {
         body: JSON.stringify(post),
       });
 
-      navigate(`/details/${post._id}`);
+      navigate(`/viewPost/${post._id}`);
     } catch (error) {
       console.error('Error updating post:', error);
     }
@@ -51,10 +51,17 @@ const EditPost = () => {
       console.error('Error deleting post:', error);
     }
   };
+  const cardStyle = {
+      color: 'white',
+      backgroundColor: 'cornflowerblue',
+      border: '1px black solid',
+      width: '100%',
+      height: 'auto'
+    };
 
   return (
     <div>
-      <Card key={post._id} post={post}>
+      <Card key={post._id} post={post}  className="container" style={cardStyle}>
         <Card.Body>
           <Card.Title>
             <h1>Edit Posts</h1>
@@ -167,9 +174,9 @@ const EditPost = () => {
               </Row>
               <br />
               
-                <button type="submit" className="button" style={{ padding: '10px', margin: '10px' }}> Save update</button>
+                <button type="submit" className="button" style={{ padding: '10px', margin: '10px', backgroundColor: 'yellowgreen' }}> Save update</button>
              
-              <Link to={`/details/${post._id}`}>
+              <Link to={`/viewPost/${post._id}`}>
                 <button type="submit" className="button">View Details</button>
               </Link>
 

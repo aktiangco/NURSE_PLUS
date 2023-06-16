@@ -21,7 +21,9 @@ const NewUser = () => {
     const cardStyle = {
         color: 'white',
         backgroundColor: 'cornflowerblue',
-        border: '1px black solid'
+        border: '1px black solid',
+        width: '100%',
+        height: 'auto'
       };
 
     return (

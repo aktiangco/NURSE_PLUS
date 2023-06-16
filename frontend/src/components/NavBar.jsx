@@ -46,6 +46,18 @@ const NavBar = () => {
                     <Link className="nav-item" style={linkStyle} to="/login">
                         <button className="nav-link rounded">Log in</button>
                     </Link>
+                    <NavDropdown bg="dark"variant="dark "title="User" id="basic-nav" className="nav-item active">
+                        <NavDropdown.Item className="nav-item active" style={dropdownStyle}>
+                            <Link className="nav-item" style={linkStyle} to="/viewUser">
+                            <button className="nav-link rounded">Edit</button>
+                            </Link>
+                        </NavDropdown.Item>
+                        <NavDropdown.Item className="nav-item active" style={dropdownStyle}>
+                            <Link className="nav-item" style={linkStyle} to="">
+                            <button className="nav-link rounded">Logout</button>
+                            </Link>
+                        </NavDropdown.Item>
+                    </NavDropdown>
                 </Nav>
             </Navbar.Collapse>
             </Container>

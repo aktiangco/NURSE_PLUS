@@ -16,7 +16,7 @@
 }
 .main-container{
     height: 100%;
-    min-height: 85.5vh;
+    min-height: 83.5vh;
     padding: 16px;
 }
 
@@ -105,3 +105,32 @@ button:hover {
     /* position: fixed;
     bottom: 0; */
 }
+
+.password-input {
+    position: relative;
+    display: inline;
+  }
+  
+.password-toggle {
+    position: absolute;
+    top: 70%;
+    right: 25px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: 12px;
+  }
+
+  .password-toggle-main {
+    position: absolute;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: 12px;
+  }

@@ -6,25 +6,32 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
 
-
 const Login = () => {
-    const [validated, setValidated] = useState(false);
+  const [validated, setValidated] = useState(false);
+  const [passwordVisible, setPasswordVisible] = useState(false);
 
-    const handleSubmit = (event) => {
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-        event.preventDefault();
-        event.stopPropagation();
-        }
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
 
-        setValidated(true);
-    };
+    setValidated(true);
+  };
 
-    const cardStyle = {
-        color: 'white',
-        backgroundColor: 'cornflowerblue',
-        border: '1px black solid'
-      };
+  const handlePasswordToggle = () => {
+    setPasswordVisible(!passwordVisible);
+  };
+
+
+  const cardStyle = {
+    color: 'white',
+    backgroundColor: 'cornflowerblue',
+    border: '1px black solid',
+    width: '100%',
+    height: 'auto'
+  };
     
     return (
         <div>
@@ -59,13 +66,22 @@ const Login = () => {
                             />
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
-                                <Form.Group as={Col} md="4" controlId="validationCustom01">
+                            <Form.Group as={Col} md="4" controlId="validationCustom01">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control
-                                required
-                                type="text"
-                                placeholder="password"
-                            />
+                            <div hasValidation>
+                                <Form.Control
+                                    required
+                                    type={passwordVisible ? 'text' : 'password'}
+                                    placeholder="Password"
+                                />
+                                <button
+                                    type="button"
+                                    className="password-toggle-main rounded"
+                                    onClick={handlePasswordToggle}
+                                    >
+                                    {passwordVisible ? 'Hide' : 'Show'}
+                                </button>             
+                            </div>
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>     
                         </Row>

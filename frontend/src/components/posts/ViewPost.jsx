@@ -22,12 +22,20 @@ const PostDetails = () => {
     
     if (!post) {
 		return <h1>Loading</h1>
-	}
+    }
+    
+    const cardStyle = {
+      color: 'white',
+      backgroundColor: 'cornflowerblue',
+      border: '1px black solid',
+      width: '100%',
+      height: 'auto'
+    };
     
   return (
     <div>
         <h2>Lesson Details</h2>
-            <Card key={post._id} post={post} style={{ width: '100%', height: 'auto' }}>
+            <Card key={post._id} post={post} className="container" style={cardStyle}>
                 <Card.Body>
                     <Card.Title>
                         <h4>Course: {post.title}</h4>
@@ -57,20 +65,20 @@ const PostDetails = () => {
                   <Card.Text>
                       {/* Path to do */}
                         <Link to={`/reserveUser/${post._id}`}> 
-                          <button className="btn-success">Reserve a Spot</button>
-                          <button className="btn-success">cancel Spot</button>
+                          <button className="button rounded">Reserve a Spot</button>
+                          <button className="button rounded">cancel Spot</button>
                         </Link> 
                     </Card.Text>
                     <Card.Text>
                         <Link to={`/editPost/${post._id}`}>
-                            <button>edit</button>
+                            <button className='button rounded'>Edit Post</button>
                         </Link> 
                     </Card.Text>
                 </Card.Body>
           </Card>
           <br />
           {/* TODO for User */}
-          <Card key={post._id} post={post} style={{ width: '100%', height: 'auto' }}>
+          <Card key={post._id} post={post} className="container" style={cardStyle}>
                 <Card.Body>
                     <Card.Title>
                     <h2>Students Reservation List</h2>
@@ -95,13 +103,13 @@ const PostDetails = () => {
                   <Card.Text>
                       {/* Path to do */}
                         <Link to={`/reserveUser/${post._id}`}> 
-                          <button className="btn-success">Reserve a Spot</button>
-                          <button className="btn-success">cancel Spot</button>
+                          <button className="button rounded">Reserve a Spot</button>
+                          <button className="button rounded">cancel Spot</button>
                         </Link> 
                     </Card.Text>
                     <Card.Text>
                         <Link to={`/gallery`}>
-                            <button>Back</button>
+                            <button className='button rounded'>Back</button>
                         </Link> 
                     </Card.Text>
                 </Card.Body>

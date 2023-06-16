@@ -23,9 +23,9 @@ const Contact = () => {
                     <Card.Text>
                         Contact Information:
                         <br />
-                        Email: <a href="*">Nurse-Plus@wecare.com</a>
+                        Email: <a href="*" className=" button btn">Nurse-Plus@wecare.com</a>
                         <br />
-                        Phone: <a href="*">202.555.0131</a>                      
+                        Phone: <a href="*" className=" button btn">202.555.0131</a>                      
                     </Card.Text>
                     <Card.Text>
                         We value your input and look forward to assisting you. Have a great day!                       
