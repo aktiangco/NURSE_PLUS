@@ -1,45 +1,38 @@
-// Creating a mongoose Shell
-// require mongoose 
 const mongoose = require('mongoose');
-// creating shorthand for the Schema constructor 
-const { Schema } = mongoose;
 
-// creating a shell
-const postSchema = new Schema({
+const postSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: true
+    required: true,
   },
   instructor: {
     type: String,
-    required: true
+    required: true,
   },
   description: {
     type: String,
-    required: true
+    required: true,
   },
   length: {
     type: String,
-    required: true
+    required: true,
   },
-  skills_testing: {
+  skillsTesting: {
     type: String,
-    required: true
+    required: true,
   },
   price: {
     type: String,
-    required: true
+    required: true,
   },
   certification: {
     type: String,
-    required: true
+    required: true,
   },
   date: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
 });
 
-const Post = mongoose.model('Post', postSchema); // Corrected model name to 'Post'
-
-module.exports = Post // Corrected export variable to 'Post'
+module.exports = mongoose.model('Post', postSchema);

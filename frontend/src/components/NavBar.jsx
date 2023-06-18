@@ -1,11 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useNavigate} from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { CurrentUser } from './contexts/CurrentUser';
 
 const NavBar = () => {
+    const { currentUser, setCurrentUser } = useContext(CurrentUser)
+    const navigate = useNavigate();
     const linkStyle = {
         textDecoration: 'none'
     }
@@ -13,7 +16,41 @@ const NavBar = () => {
         color: 'white',
         backgroundColor: 'black',
         padding: '5px'
-        }
+    }
+    
+    const handleLogout = async () => {
+        await fetch('http://localhost:5000/auth/logout', {
+          method: 'POST',
+          credentials: 'include',
+        })
+    
+        setCurrentUser(null)
+        navigate('/')
+      }
+
+    let loginActions = (
+        <Link className="nav-item" style={linkStyle} to="/login">
+            <button className="nav-link rounded">Log in</button>
+        </Link>
+    )
+
+    if (currentUser) {
+        loginActions = (
+            <NavDropdown bg="dark"variant="dark "title={`${currentUser.firstName}`} id="basic-nav" className="nav-item active">
+                    <NavDropdown.Item className="nav-item active" style={dropdownStyle}>
+                        <Link className="nav-item" style={linkStyle} to="userProfile/:userId">
+                        <button className="nav-link rounded">Edit</button>
+                        </Link>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item className="nav-item active" style={dropdownStyle}>
+                        <Link className="nav-item" style={linkStyle}>
+                        <button className="nav-link rounded" onClick={handleLogout}>Logout</button>
+                        </Link>
+                    </NavDropdown.Item>
+                </NavDropdown>
+        )
+    }
+
 
     return (
         <Navbar bg="dark" expand="lg" variant="dark" >
@@ -43,21 +80,8 @@ const NavBar = () => {
                     <Link className="nav-item" style={linkStyle}  to="/contact">
                     <button className="nav-link rounded">Contact Us</button>
                     </Link>
-                    <Link className="nav-item" style={linkStyle} to="/login">
-                        <button className="nav-link rounded">Log in</button>
-                    </Link>
-                    <NavDropdown bg="dark"variant="dark "title="User" id="basic-nav" className="nav-item active">
-                        <NavDropdown.Item className="nav-item active" style={dropdownStyle}>
-                            <Link className="nav-item" style={linkStyle} to="/viewUser">
-                            <button className="nav-link rounded">Edit</button>
-                            </Link>
-                        </NavDropdown.Item>
-                        <NavDropdown.Item className="nav-item active" style={dropdownStyle}>
-                            <Link className="nav-item" style={linkStyle} to="">
-                            <button className="nav-link rounded">Logout</button>
-                            </Link>
-                        </NavDropdown.Item>
-                    </NavDropdown>
+                    {loginActions}
+                    
                 </Nav>
             </Navbar.Collapse>
             </Container>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Instagram, Facebook, Linkedin } from "react-bootstrap-icons";
+import { Instagram, Facebook, Linkedin, Github } from "react-bootstrap-icons";
 
 
 const Footer = () => {
@@ -7,10 +7,22 @@ const Footer = () => {
 
 
     return (
-        <div className='footer'>
+        <div className='footer' style={{ display: 'flex', justifyContent: 'space-between' }}>
             <div>
-                <div style={{ padding: '10px'}}>
-                    created by Allan Tiangco
+                <div style={{display: 'flex'}}>
+                    <div style={{ padding: '10px' }}>     
+                        <div>created by Allan Tiangco</div>
+                    </div>
+                    <div style={{ padding: '10px' }}>
+                        <a style={{ color: 'white'}} href='https://www.linkedin.com/in/allan-kris-tiangco-057a78a0/'>
+                            <Linkedin />
+                        </a>
+                    </div>
+                    <div style={{ padding: '10px' }}>                    
+                        <a style={{ color: 'white'}} href='https://github.com/aktiangco'>
+                            <Github />
+                        </a>
+                    </div>
                 </div>
             </div>
             <div>

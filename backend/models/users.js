@@ -1,10 +1,6 @@
-// require mongoose
 const mongoose = require('mongoose');
-// creating shorthand for the Schema constructor
-const { Schema } = mongoose;
 
-// creating a shell
-const userSchema = new Schema({
+const userSchema = new mongoose.Schema({
   firstName: {
     type: String,
     required: true
@@ -12,11 +8,6 @@ const userSchema = new Schema({
   lastName: {
     type: String,
     required: true
-  },
-  username: {
-    type: String,
-    required: true,
-    unique: true
   },
   email: {
     type: String,
@@ -27,12 +18,27 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
-  createdAt: {
+  city: {
+    type: String,
+    required: true,
+  },
+  state: {
+    type: String,
+    required: true,
+  },
+  zipCode: {
+    type: String,
+    required: true,
+  },
+  role: {
+    type: String,
+    default: 'user'
+  },
+  joined: {
     type: Date,
     default: Date.now
   }
 });
 
-const User = mongoose.model('User', userSchema);
+module.exports = mongoose.model('User', userSchema);
 
-module.exports = User;

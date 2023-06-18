@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 
+
 const EditUser = () => {
   const [user, setUser] = useState([]);
   const { userId } = useParams();
@@ -38,7 +39,7 @@ const EditUser = () => {
       });
 
       setIsSaved(true);
-      navigate(`/viewUser/${userId}`);
+      navigate(`/userProfile/${userId}`);
     } catch (error) {
       console.error('Error updating user:', error);
     }
@@ -104,17 +105,7 @@ const EditUser = () => {
             </Row>
             <br />
             <Row>
-              <Form.Group as={Col} controlId="validation">
-                <Form.Label htmlFor="username">Username:</Form.Label>
-                <Form.Control
-                  type="text"
-                  id="username"
-                  name="username"
-                  value={user.username}
-                  onChange={e => setUser({ ...user, username: e.target.value })}
-                  required
-                />
-              </Form.Group>
+              
               <Form.Group as={Col} controlId="validation">
                 <Form.Label htmlFor="email">Email:</Form.Label>
                 <Form.Control
@@ -140,7 +131,7 @@ const EditUser = () => {
                   />
                   <button
                     type="button"
-                    className="password-toggle button"
+                    className="password-toggle rounded"
                     onClick={handlePasswordToggle}
                   >
                     {passwordVisible ? 'Hide' : 'Show'}

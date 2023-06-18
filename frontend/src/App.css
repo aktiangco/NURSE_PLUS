@@ -113,10 +113,10 @@ button:hover {
   
 .password-toggle {
     position: absolute;
-    top: 70%;
-    right: 25px;
+    top: 72%;
+    right: 27px;
     transform: translateY(-50%);
-    background: none;
+    background: inherit;
     border: none;
     padding: 0;
     cursor: pointer;
@@ -125,8 +125,8 @@ button:hover {
 
   .password-toggle-main {
     position: absolute;
-    top: 50%;
-    right: 40px;
+    top: 49.5%;
+    right: 4%;
     transform: translateY(-50%);
     background: none;
     border: none;
