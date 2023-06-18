@@ -69,7 +69,7 @@ const EditPost = () => {
           <Card.Text>
             <Form onSubmit={handleSubmit}>
               <Row className="mb-3">
-                <Form.Group as={Col} controlId="validation">
+                <Form.Group as={Col} controlId="title">
                   <Form.Label htmlFor="title">Title:</Form.Label>
                   <Form.Control
                     type="text"
@@ -80,7 +80,7 @@ const EditPost = () => {
                     required
                   />
                 </Form.Group>
-                <Form.Group as={Col} controlId="validation">
+                <Form.Group as={Col} controlId="instructor">
                   <Form.Label htmlFor="instructor">Instructor:</Form.Label>
                   <Form.Control
                     type="text"
@@ -94,7 +94,7 @@ const EditPost = () => {
               </Row>
               <br />
               <Row>
-                <Form.Group as={Col} controlId="validation">
+                <Form.Group as={Col} controlId="length">
                   <Form.Label htmlFor="length">Length:</Form.Label>
                   <Form.Control
                     type="text"
@@ -105,7 +105,7 @@ const EditPost = () => {
                     required
                   />
                 </Form.Group>
-                <Form.Group as={Col} controlId="validation">
+                <Form.Group as={Col} controlId="price">
                   <Form.Label htmlFor="price">Price:</Form.Label>
                   <Form.Control
                     type="text"
@@ -117,7 +117,7 @@ const EditPost = () => {
                     required
                   />
                 </Form.Group>
-                <Form.Group as={Col} controlId="validation">
+                <Form.Group as={Col} controlId="date">
                   <Form.Label htmlFor="date">Date:</Form.Label>
                   <Form.Control
                     type="date"
@@ -131,7 +131,7 @@ const EditPost = () => {
               </Row>
               <br />
               <Row>
-                <Form.Group as={Col} controlId="validation">
+                <Form.Group as={Col} controlId="skills-testing">
                   <Form.Label htmlFor="skills_testing">
                     Skills Testing:
                   </Form.Label>
@@ -140,11 +140,11 @@ const EditPost = () => {
                     id="skills_testing"
                     name="skills_testing"
                     value={post.skills_testing}
-                    onChange={e => setPost({ ...post, skills_testing: e.target.value })}
+                    onChange={e => setPost({ ...post, skillsTesting: e.target.value })}
                     required
                   />
                 </Form.Group>
-                <Form.Group as={Col} controlId="validation">
+                <Form.Group as={Col} controlId="certification">
                   <Form.Label htmlFor="certification">
                     Certification:
                   </Form.Label>

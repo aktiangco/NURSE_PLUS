@@ -2,14 +2,12 @@ module.exports = [
     {
       firstName: 'Jane',
       lastName: 'Doe',
-      username: 'doedoe1',
       email: 'janeDoe@gmail.com',
       password: 'abc123'
     },
     {
       firstName: 'John',
       lastName: 'Smith',
-      username: 'Jsmith',
       email: 'JohnSmith@gmail.com',
       password: '123abc'
     }
@@ -17,17 +15,15 @@ module.exports = [
   
 // db.users.insertMany([
 //   {
-//     "firstName": 'Jane',
-//     "lastName": 'Doe',
-//     "username": 'doedoe1',
-//     "email": 'janeDoe@gmail.com',
+//     "firstName": 'Allan',
+//     "lastName": 'Tiangco',
+//     "email": 'atia@gmail.com',
 //     "password": 'abc123'
 //   },
 //   {
-//     "firstName": 'John',
-//     "lastName": 'Smith',
-//     "username": 'Jsmith',
-//     "email": 'JohnSmith@gmail.com',
+//     "firstName": 'Ivy',
+//     "lastName": 'Borro',
+//     "email": 'iborrow@gmail.com',
 //     "password": '123abc'
 //   }
 

@@ -36,9 +36,9 @@ const App = () => {
           <Route path="/post" element={<Post />} />
           <Route path="/viewPost/:postId" element={<ViewPost />} />
           <Route path='/editPost/:postId' element={<EditPost />} />
-          <Route path="/signup" element={<NewUser />} />
+          <Route path="/userRegistration" element={<NewUser />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/viewUser/:userId" element={<ViewUser />} />
+          <Route path="/userProfile/:userId" element={<ViewUser />} />
           <Route path="/editUser/:userId" element={<EditUser />} />
         </Routes>
       </div>

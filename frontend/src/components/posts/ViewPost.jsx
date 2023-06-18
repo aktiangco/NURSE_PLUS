@@ -34,11 +34,11 @@ const PostDetails = () => {
     
   return (
     <div>
-        <h2>Lesson Details</h2>
             <Card key={post._id} post={post} className="container" style={cardStyle}>
                 <Card.Body>
                     <Card.Title>
-                        <h4>Course: {post.title}</h4>
+                        <h2>Lesson Details</h2>
+                        <h5>Course: {post.title}</h5>
                        
                     </Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">

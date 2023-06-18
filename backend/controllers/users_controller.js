@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/users');
-mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 // * Index route
@@ -17,24 +17,43 @@ router.get('/', (req, res) => {
     });
 });
 
-// TODO: fix this route
-router.post('/', async (req, res) => {
+// create Route 
+router.post('/new', async (req, res) => {
+    const { firstName, lastName, email, password, city, state, zipCode } = req.body;
+    
+    if (!firstName || !lastName || !email || !password || !city || !state || !zipCode ) {
+        return res.status(400).json({ message: 'All fields are required' });
+      }
     try {
-      const { password, ...rest } = req.body;
-      const hashedPassword = await bcrypt.hash(password, 10);
-      const user = new User({
-        ...rest,
-        role: 'reviewer', // Restricting access up as an admin
-        passwordDigest: hashedPassword
-      });
-  
-      await user.save();
-      res.json(user);
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: 'Cannot create user' });
-    }
-  });
+        // Check if the user already exists
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+          return res.status(400).json({ message: 'User already exists' });
+        }
+    
+        // Hash the password
+        const saltRounds = 10;
+        const passwordHash = await bcrypt.hash(password, saltRounds);
+    
+        // Create a new user
+        const newUser = new User({
+            firstName,
+            lastName,
+            email,
+            password: passwordHash,
+            city,
+            state,
+            zipCode,
+            role: 'user' // Specify the role here
+        });
+    
+        // Save the user to the database
+        await newUser.save();
+        res.status(201).json(newUser);
+      } catch (error) {
+        res.status(500).json({ message: 'An error occurred while registering the user.' });
+      }
+    });
 
 // * Show route
 router.get('/:id', (req, res) => {
