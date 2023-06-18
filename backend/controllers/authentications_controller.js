@@ -10,6 +10,10 @@ router.post('/register', async (req, res) => {
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: 'User already exists' });
+    } else {
+      // To access cookies
+      req.session.userId = user.userId
+      res.json({ user })
     }
 
     // Hash the password
@@ -17,18 +21,21 @@ router.post('/register', async (req, res) => {
     const passwordHash = await bcrypt.hash(password, saltRounds);
 
     // Create a new user
-    const newUser = new User({
-      firstName,
-      lastName,
-      email,
-      password: passwordHash,
-      role: 'user'
-    });
+const newUser = new User({
+  firstName,
+  lastName,
+  email,
+  password: passwordHash,
+  role: 'user'
+});
 
-    // Save the user to the database
-    const savedUser = await newUser.save();
+// Save the user to the database
+const savedUser = await newUser.save();
 
-    res.status(201).json(savedUser);
+// Set the session ID with the saved user ID
+req.session.userId = savedUser._id;
+
+res.status(201).json(savedUser);
   } catch (error) {
     console.error('Error registering user:', error);
     res.status(500).json({ message: 'An error occurred while registering the user.' });
@@ -65,24 +72,22 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// TODO: view authorized profile
-router.get('/:id', (req, res) => {
-  if (mongoose.Types.ObjectId.isValid(req.params.id)) {
-    User.findById(req.params.id)
-      .then(user => {
-        if (user) {
-          res.json(user);
-        } else {
-          res.status(404).json({ error: 'User not found' });
-        }
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json({ error: 'Internal Server Error' });
-      });
-  } else {
-    res.status(400).json({ error: 'Invalid User ID' });
-  }
+// Fetch a user by ID
+router.get('/users/:id', (req, res) => {
+  const userId = req.params.id;
+
+  // Assuming you have a User model defined
+  User.findById(userId, (err, user) => {
+    if (err) {
+      return res.status(500).json({ error: 'Internal Server Error' });
+    }
+
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    res.json(user);
+  });
 });
 
 // Creating a logout: passwordHash,

@@ -30,7 +30,7 @@ const Post = (data) => {
 
     let postFormatted = posts.map((post) => (                               
                             
-            <Card key={post._id} post={post} style={cardStyle} className="container postList">
+            <Card key={post._id} post={post} style={cardStyle} className="container postList ">
                 <Card.Body>
                     <Card.Title>{post.title}</Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">
@@ -51,7 +51,7 @@ const Post = (data) => {
                 ))
 
     return (
-        <div className="row">
+        <div className="row ">
             {postFormatted}
         </div>
     );

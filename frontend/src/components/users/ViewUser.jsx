@@ -11,18 +11,20 @@ const ViewUser = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/auth/${userId}`);
+        const response = await fetch(`http://localhost:8080/users/${userId}`);
         if (!response.ok) {
           throw new Error('Error fetching user');
         }
-        const resData = await response.json();
-        setUser(resData);
+        const data = await response.json();
+        setUser(data);
       } catch (error) {
-        console.error('Error fetching user:', error);
         setError('An error occurred while fetching the user.');
       }
     };
-    fetchUser();
+
+    if (userId) {
+      fetchUser();
+    }
   }, [userId]);
 
   if (error) {

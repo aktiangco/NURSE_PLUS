@@ -36,20 +36,20 @@ const NavBar = () => {
 
     if (currentUser) {
         loginActions = (
-            <NavDropdown bg="dark"variant="dark "title={`${currentUser.firstName}`} id="basic-nav" className="nav-item active">
-                    <NavDropdown.Item className="nav-item active" style={dropdownStyle}>
-                        <Link className="nav-item" style={linkStyle} to="userProfile/:userId">
-                        <button className="nav-link rounded">Edit</button>
-                        </Link>
-                    </NavDropdown.Item>
-                    <NavDropdown.Item className="nav-item active" style={dropdownStyle}>
-                        <Link className="nav-item" style={linkStyle}>
-                        <button className="nav-link rounded" onClick={handleLogout}>Logout</button>
-                        </Link>
-                    </NavDropdown.Item>
-                </NavDropdown>
-        )
-    }
+          <NavDropdown bg="dark" variant="dark" title={`${currentUser.firstName}`} id="basic-nav" className="nav-item active">
+            <NavDropdown.Item className="nav-item active" style={dropdownStyle}>
+              <Link className="nav-item" style={linkStyle} to={`/userProfile/${currentUser.userId}`}>
+                Edit
+              </Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item className="nav-item active" style={dropdownStyle}>
+              <button className="nav-link rounded" onClick={handleLogout}>
+                Logout
+              </button>
+            </NavDropdown.Item>
+          </NavDropdown>
+        );
+      }
 
 
     return (

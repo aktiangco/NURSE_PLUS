@@ -71,7 +71,7 @@ router.get('/:id', (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
         });
     } else {
-    res.status(400).json({ error: 'Invalid Usert ID' });
+    res.status(400).json({ error: 'Invalid User ID' });
     }
 });
   
