@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 
 const EditPost = () => {
-  const [post, setPost] = useState([]);
+  const [post, setPost] = useState({});
   const { postId } = useParams();
   const navigate = useNavigate();
   
@@ -24,6 +24,10 @@ const EditPost = () => {
     fetchPost();
   }, [postId]);
 
+  const showAlert = () => {
+    alert('Post updated successfully!');
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -34,9 +38,12 @@ const EditPost = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(post),
+      }).then(() => {
+        navigate(`/viewPost/${post._id}`);
+        showAlert();
+      }).catch((error) => {
+        console.error('Error updating post:', error);
       });
-
-      navigate(`/viewPost/${post._id}`);
     } catch (error) {
       console.error('Error updating post:', error);
     }
@@ -70,22 +77,20 @@ const EditPost = () => {
           <Card.Text>
             <Form onSubmit={handleSubmit}>
               <Row className="mb-3">
-                <Form.Group as={Col} controlId="title">
-                  <Form.Label htmlFor="title">Title:</Form.Label>
+                <Form.Group as={Col} >
+                  <Form.Label controlId="title">Title:</Form.Label>
                   <Form.Control
                     type="text"
-                    id="title"
                     name="title"
                     value={post.title}
                     onChange={e => setPost({ ...post, title: e.target.value })}
                     required
                   />
                 </Form.Group>
-                <Form.Group as={Col} controlId="instructor">
-                  <Form.Label htmlFor="instructor">Instructor:</Form.Label>
+                <Form.Group as={Col} >
+                  <Form.Label controlId="instructor">Instructor:</Form.Label>
                   <Form.Control
                     type="text"
-                    id="instructor"
                     name="instructor"
                     value={post.instructor}
                     onChange={e => setPost({ ...post, instructor: e.target.value })}
@@ -95,34 +100,30 @@ const EditPost = () => {
               </Row>
               <br />
               <Row>
-                <Form.Group as={Col} controlId="length">
-                  <Form.Label htmlFor="length">Length:</Form.Label>
+                <Form.Group as={Col} >
+                  <Form.Label controlId="length">Length:</Form.Label>
                   <Form.Control
                     type="text"
-                    id="length"
                     name="length"
                     value={post.length}
                     onChange={e => setPost({ ...post, length: e.target.value })}
                     required
                   />
                 </Form.Group>
-                <Form.Group as={Col} controlId="price">
-                  <Form.Label htmlFor="price">Price:</Form.Label>
-                  <Form.Control
-                    type="text"
-                    id="price"
-                    name="price"
-                   
-                    value={post.price}
-                    onChange={e => setPost({ ...post, price: e.target.value })}
-                    required
-                  />
+                <Form.Group as={Col}>
+                  <Form.Label controlId="price">Price:</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="price"
+                      value={post.price || ''}
+                      onChange={(e) => setPost({ ...post, price: e.target.value })}
+                      required
+                    />
                 </Form.Group>
-                <Form.Group as={Col} controlId="date">
-                  <Form.Label htmlFor="date">Date:</Form.Label>
+                <Form.Group as={Col} >
+                  <Form.Label controlId="date">Date:</Form.Label>
                   <Form.Control
                     type="date"
-                    id="date"
                     name="date"
                     value={post.date}
                     onChange={e => setPost({ ...post, date: e.target.value })}
@@ -132,26 +133,24 @@ const EditPost = () => {
               </Row>
               <br />
               <Row>
-                <Form.Group as={Col} controlId="skills-testing">
-                  <Form.Label htmlFor="skills_testing">
+                <Form.Group as={Col} >
+                  <Form.Label controlId="skillsTesting">
                     Skills Testing:
                   </Form.Label>
                   <Form.Control
                     type="text"
-                    id="skills_testing"
-                    name="skills_testing"
-                    value={post.skills_testing}
+                    name="skillsTesting"
+                    value={post.skillsTesting}
                     onChange={e => setPost({ ...post, skillsTesting: e.target.value })}
                     required
                   />
                 </Form.Group>
-                <Form.Group as={Col} controlId="certification">
-                  <Form.Label htmlFor="certification">
+                <Form.Group as={Col} >
+                  <Form.Label controlId="certification">
                     Certification:
                   </Form.Label>
                   <Form.Control
                     type="text"
-                    id="certification"
                     name="certification"
                     value={post.certification}
                     onChange={e => setPost({ ...post, certification: e.target.value })}
@@ -165,7 +164,6 @@ const EditPost = () => {
                 <br />
                 <Form.Control
                   as="textarea"
-                  id="description"
                   name="description"
                   value={post.description}
                   onChange={e => setPost({ ...post, description: e.target.value })}
@@ -188,7 +186,7 @@ const EditPost = () => {
                 }}>
                 Delete
               </button>
-            </Form>
+              </Form>
           </Card.Text>
         </Card.Body>
       </Card>

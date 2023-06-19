@@ -81,8 +81,8 @@ const EditUser = () => {
           )}
           <Form onSubmit={handleSubmit}>
             <Row className="mb-3">
-              <Form.Group as={Col} controlId="firstName">
-                <Form.Label>First Name:</Form.Label>
+              <Form.Group as={Col} >
+                <Form.Label controlId="firstName">First Name:</Form.Label>
                 <Form.Control
                   type="text"
                   name="firstName"
@@ -93,8 +93,8 @@ const EditUser = () => {
                   required
                 />
               </Form.Group>
-              <Form.Group as={Col} controlId="lastName">
-                <Form.Label>Last Name:</Form.Label>
+              <Form.Group as={Col} >
+                <Form.Label controlId="lastName">Last Name:</Form.Label>
                 <Form.Control
                   type="text"
                   name="lastName"
@@ -108,8 +108,8 @@ const EditUser = () => {
             </Row>
             <br />
             <Row>
-              <Form.Group as={Col} controlId="email">
-                <Form.Label>Email:</Form.Label>
+              <Form.Group as={Col} >
+                <Form.Label controlId="email">Email:</Form.Label>
                 <Form.Control
                   type="email"
                   name="email"
@@ -118,8 +118,8 @@ const EditUser = () => {
                   required
                 />
               </Form.Group>
-              <Form.Group as={Col} controlId="password" className="password-input">
-                <Form.Label>Password:</Form.Label>
+              <Form.Group as={Col}  className="password-input">
+                <Form.Label controlId="password">Password:</Form.Label>
                 <div>
                   <Form.Control
                     type={passwordVisible ? 'text' : 'password'}
@@ -145,6 +145,7 @@ const EditUser = () => {
               type="submit"
               className="button"
               style={{ padding: '10px', margin: '10px', backgroundColor: 'yellowgreen' }}
+              onClick={() => window.alert('Update saved!')}
             >
               Save Update
             </button>

@@ -70,11 +70,14 @@ router.post('/new', async (req, res) => {
 router.put('/:id', (req, res) => {
   Post.findByIdAndUpdate(req.params.id, req.body)
     .then(() => {
-      res.redirect(`/posts/${req.params.id}`);
+      return Post.findById(req.params.id);
+    })
+    .then((updatedPost) => {
+      res.json(updatedPost);
     })
     .catch((err) => {
       console.log('err', err);
-      res.status(500).send({ error: 'Update route failed' });
+      res.status(500).json({ error: 'Update route failed' });
     });
 });
 

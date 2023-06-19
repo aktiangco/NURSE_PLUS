@@ -74,7 +74,7 @@ const PostDetails = () => {
                     </Card.Text>
                     <Card.Text>
                         <h4>Cost:</h4>
-                        ${post.price}.00
+                        ${post.price}
                     </Card.Text>
                   <Card.Text>
                       {/* Path to do */}
@@ -91,7 +91,7 @@ const PostDetails = () => {
           </Card>
           <br />
           {/* TODO for User */}
-          <Card key={post._id} post={post} className="container" style={cardStyle}>
+          <Card  post={post} className="container" style={cardStyle}>
                 <Card.Body>
                     <Card.Title>
                     <h2>Students Reservation List</h2>
