@@ -1,7 +1,9 @@
-const router = require('express').Router();
+const express = require('express');
+const router = express.Router();
 const User = require('../models/users');
 const bcrypt = require('bcrypt');
 
+// Register route
 router.post('/register', async (req, res) => {
   try {
     const { firstName, lastName, email, password } = req.body;
@@ -35,29 +37,23 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// Add a request handler to the authentication controller
+// Login route
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
 
     // Check if the user exists
-    console.log('Finding user:', email);
-    const user = await User.findOne({ email: email.toLowerCase() });
+    const user = await User.findOne({ email });
     if (!user) {
-      console.log('User not found');
       return res.status(400).json({ message: 'Invalid email or password' });
     }
 
     // Compare the provided password with the stored password hash
     const passwordMatch = await bcrypt.compare(password, user.password);
-    console.log('Password match:', passwordMatch);
     if (!passwordMatch) {
-      console.log('Invalid password');
       return res.status(400).json({ message: 'Invalid email or password' });
     }
 
-    // If the email and password are correct, return the user object
-    console.log('Login successful:', user);
     res.json({ user });
   } catch (error) {
     console.error('Error logging in:', error);
@@ -65,27 +61,24 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// TODO: view authorized profile
-router.get('/:id', (req, res) => {
-  if (mongoose.Types.ObjectId.isValid(req.params.id)) {
-    User.findById(req.params.id)
-      .then(user => {
-        if (user) {
-          res.json(user);
-        } else {
-          res.status(404).json({ error: 'User not found' });
-        }
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json({ error: 'Internal Server Error' });
-      });
-  } else {
-    res.status(400).json({ error: 'Invalid User ID' });
+// Fetch a user by ID
+router.get('/users/:id', async (req, res) => {
+  const userId = req.params.id;
+
+  try {
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    res.json(user);
+  } catch (error) {
+    console.error('Error fetching user:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
-// Creating a logout: passwordHash,
+// Logout route
 router.post('/logout', (req, res) => {
   req.session = null;
   res.sendStatus(200);

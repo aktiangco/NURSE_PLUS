@@ -19,14 +19,24 @@ const NavBar = () => {
     }
     
     const handleLogout = async () => {
-        await fetch('http://localhost:5000/auth/logout', {
+        await fetch('http://localhost:8080/auth/logout', {
           method: 'POST',
           credentials: 'include',
         })
     
         setCurrentUser(null)
         navigate('/')
-      }
+    }
+    
+    let addNewLesson = null
+
+    if (currentUser?.role === 'admin') {
+        addNewLesson = (
+            <Link className="nav-item" style={linkStyle} to="/newPost/new">
+                <button className="nav-link rounded">New course</button>
+            </Link>
+        )
+    }
 
     let loginActions = (
         <Link className="nav-item" style={linkStyle} to="/login">
@@ -36,20 +46,20 @@ const NavBar = () => {
 
     if (currentUser) {
         loginActions = (
-            <NavDropdown bg="dark"variant="dark "title={`${currentUser.firstName}`} id="basic-nav" className="nav-item active">
-                    <NavDropdown.Item className="nav-item active" style={dropdownStyle}>
-                        <Link className="nav-item" style={linkStyle} to="userProfile/:userId">
-                        <button className="nav-link rounded">Edit</button>
-                        </Link>
-                    </NavDropdown.Item>
-                    <NavDropdown.Item className="nav-item active" style={dropdownStyle}>
-                        <Link className="nav-item" style={linkStyle}>
-                        <button className="nav-link rounded" onClick={handleLogout}>Logout</button>
-                        </Link>
-                    </NavDropdown.Item>
-                </NavDropdown>
-        )
-    }
+          <NavDropdown bg="dark" variant="dark" title={`${currentUser.firstName}`} id="basic-nav" className="nav-item active">
+            <NavDropdown.Item className="nav-item active" style={dropdownStyle}>
+              <Link className="nav-item" style={linkStyle} to={`/editUser/${currentUser._id}`}>
+                Edit
+              </Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item className="nav-item active" style={dropdownStyle}>
+              <button className="nav-link rounded" onClick={handleLogout}>
+                Logout
+              </button>
+            </NavDropdown.Item>
+          </NavDropdown>
+        );
+      }
 
 
     return (
@@ -69,9 +79,7 @@ const NavBar = () => {
                             </Link>
                         </NavDropdown.Item>
                         <NavDropdown.Item className="nav-item active" style={dropdownStyle}>
-                            <Link className="nav-item" style={linkStyle} to="/newPost/new">
-                            <button className="nav-link rounded">New course</button>
-                            </Link>
+                            {addNewLesson}
                         </NavDropdown.Item>
                     </NavDropdown>    
                     <Link className="nav-item" style={linkStyle}  to="/about">

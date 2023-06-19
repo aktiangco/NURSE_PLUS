@@ -1,9 +1,11 @@
-import React, {  useState, useEffect} from 'react';
+import React, {  useState, useEffect, useContext } from 'react';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import { useParams } from "react-router"
+import { CurrentUser } from '../contexts/CurrentUser';
 
 const PostDetails = () => {
+    const { currentUser } = useContext(CurrentUser)
     const [post, setPost] = useState(null);
     const { postId } = useParams();
 
@@ -18,7 +20,19 @@ const PostDetails = () => {
           }
         };
         fetchPost();
-      }, [postId]);
+    }, [postId]);
+  
+    let editLesson = null
+  
+    if (currentUser?.role === 'admin') {
+      editLesson = (
+        <Card.Text>
+            <Link to={`/editPost/${post?._id}`}>
+                <button className='button rounded'>Edit Post</button>
+            </Link> 
+        </Card.Text>
+      )
+  }
     
     if (!post) {
 		return <h1>Loading</h1>
@@ -68,12 +82,11 @@ const PostDetails = () => {
                           <button className="button rounded">Reserve a Spot</button>
                           <button className="button rounded">cancel Spot</button>
                         </Link> 
-                    </Card.Text>
-                    <Card.Text>
-                        <Link to={`/editPost/${post._id}`}>
-                            <button className='button rounded'>Edit Post</button>
-                        </Link> 
-                    </Card.Text>
+                  </Card.Text>
+                  <Card.Text>
+                    {editLesson}
+                  </Card.Text>
+                    
                 </Card.Body>
           </Card>
           <br />
