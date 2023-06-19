@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-
+import { CurrentUser } from '../contexts/CurrentUser';
 
 const EditUser = () => {
-  const [user, setUser] = useState([]);
+  const { currentUser } = useContext(CurrentUser)
+  const [user, setUser] = useState({});
   const { userId } = useParams();
   const navigate = useNavigate();
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -16,7 +17,7 @@ const EditUser = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/users/${userId}`);
+        const response = await fetch(`http://localhost:8080/auth/login`);
         const resData = await response.json();
         setUser(resData);
       } catch (error) {
@@ -35,11 +36,11 @@ const EditUser = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(user),
+        body: JSON.stringify(currentUser),
       });
 
-      setIsSaved(true);
       navigate(`/userProfile/${userId}`);
+      setIsSaved(true);
     } catch (error) {
       console.error('Error updating user:', error);
     }
@@ -63,9 +64,9 @@ const EditUser = () => {
   const cardStyle = {
     color: 'white',
     backgroundColor: 'cornflowerblue',
-    border: '1px black solid',
+    border: '1px solid black',
     width: '100%',
-    height: 'auto'
+    height: 'auto',
   };
 
   return (
@@ -75,58 +76,58 @@ const EditUser = () => {
           <Card.Title>
             <h1>Update User</h1>
           </Card.Title>
-            {isSaved && (
-                <p style={{ color: 'green' }}>Update saved successfully!</p>
-            )}
+          {isSaved && (
+            <p style={{ color: 'green' }}>Update saved successfully!</p>
+          )}
           <Form onSubmit={handleSubmit}>
             <Row className="mb-3">
-              <Form.Group as={Col} controlId="validation">
-                <Form.Label htmlFor="firstName">First Name:</Form.Label>
+              <Form.Group as={Col} controlId="firstName">
+                <Form.Label>First Name:</Form.Label>
                 <Form.Control
                   type="text"
-                  id="firstName"
                   name="firstName"
-                  value={user.firstName}
-                  onChange={e => setUser({ ...user, firstName: e.target.value })}
+                  value={currentUser.firstName || ''}
+                  onChange={(e) =>
+                    setUser({ ...currentUser, firstName: e.target.value })
+                  }
                   required
                 />
               </Form.Group>
-              <Form.Group as={Col} controlId="validation">
-                <Form.Label htmlFor="lastName">Last Name:</Form.Label>
+              <Form.Group as={Col} controlId="lastName">
+                <Form.Label>Last Name:</Form.Label>
                 <Form.Control
                   type="text"
-                  id="lastName"
                   name="lastName"
-                  value={user.lastName}
-                  onChange={e => setUser({ ...user, lastName: e.target.value })}
+                  value={currentUser.lastName || ''}
+                  onChange={(e) =>
+                    setUser({ ...currentUser, lastName: e.target.value })
+                  }
                   required
                 />
               </Form.Group>
             </Row>
             <br />
             <Row>
-              
-              <Form.Group as={Col} controlId="validation">
-                <Form.Label htmlFor="email">Email:</Form.Label>
+              <Form.Group as={Col} controlId="email">
+                <Form.Label>Email:</Form.Label>
                 <Form.Control
-                  type="text"
-                  id="email"
+                  type="email"
                   name="email"
-                  value={user.email}
-                  onChange={e => setUser({ ...user, email: e.target.value })}
+                  value={currentUser.email || ''}
+                  onChange={(e) => setUser({ ...currentUser, email: e.target.value })}
                   required
                 />
               </Form.Group>
-              <Form.Group as={Col} controlId="validation" className="password-input">
-                <Form.Label htmlFor="password">Password:</Form.Label>
-
+              <Form.Group as={Col} controlId="password" className="password-input">
+                <Form.Label>Password:</Form.Label>
                 <div>
                   <Form.Control
                     type={passwordVisible ? 'text' : 'password'}
-                    id="password"
                     name="password"
-                    value={user.password}
-                    onChange={e => setUser({ ...user, password: e.target.value })}
+                    // value={currentUser.password || ''}
+                    onChange={(e) =>
+                      setUser({ ...currentUser, password: e.target.value })
+                    }
                     required
                   />
                   <button
@@ -140,26 +141,29 @@ const EditUser = () => {
               </Form.Group>
             </Row>
             <br />
-
-            <button type="submit" className="button" style={{ padding: '10px', margin: '10px', backgroundColor: 'yellowgreen' }}> Save update</button>
+            <button
+              type="submit"
+              className="button"
+              style={{ padding: '10px', margin: '10px', backgroundColor: 'yellowgreen' }}
+            >
+              Save Update
+            </button>
 
             <Link to={`/viewUser/${userId}`}>
-              <button type="submit" className="button">View User</button>
+              <button type="button" className="button">
+                View User
+              </button>
             </Link>
 
             <button
               type="button"
               onClick={handleDelete}
               className="button btn-caution"
-              style={{
-                padding: '10px',
-                margin: '10px',
-                backgroundColor: 'red',
-              }}
+              style={{ padding: '10px', margin: '10px', backgroundColor: 'red' }}
             >
               Delete
             </button>
-            </Form>
+          </Form>
         </Card.Body>
       </Card>
     </div>

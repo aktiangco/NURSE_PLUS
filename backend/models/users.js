@@ -32,7 +32,12 @@ const userSchema = new mongoose.Schema({
   },
   role: {
     type: String,
+   
     default: 'user'
+  },
+  passwordDigest: {
+    type: String,
+    required: true
   },
   joined: {
     type: Date,

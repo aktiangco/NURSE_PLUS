@@ -17,10 +17,6 @@ import ViewUser from './components/users/ViewUser';
 import EditUser from './components/users/EditUser';
 import './App.css';
 
-
-
-
-
 const App = () => {
   return (
     <div className="app-css">

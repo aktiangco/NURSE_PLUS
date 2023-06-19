@@ -9,6 +9,7 @@ const EditPost = () => {
   const [post, setPost] = useState([]);
   const { postId } = useParams();
   const navigate = useNavigate();
+  
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -111,7 +112,7 @@ const EditPost = () => {
                     type="text"
                     id="price"
                     name="price"
-                    defaultValue={'$'}
+                   
                     value={post.price}
                     onChange={e => setPost({ ...post, price: e.target.value })}
                     required
