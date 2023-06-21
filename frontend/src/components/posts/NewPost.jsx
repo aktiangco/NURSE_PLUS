@@ -87,7 +87,7 @@ const NewPost = () => {
                 <Form.Group as={Col} >
                   <Form.Label htmlFor="price">Price:</Form.Label>
                   <Form.Control
-                    type="text"
+                    type=""
                     id="price"
                     name="price"
                     onChange={(e) => setPost({ ...post, price: e.target.value })}

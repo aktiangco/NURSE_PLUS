@@ -13,7 +13,6 @@ import NewPost from './components/posts/NewPost';
 import EditPost from './components/posts/EditPost';
 import Login from './components/users/Login';
 import NewUser from './components/users/NewUser';
-import ViewUser from './components/users/ViewUser';
 import EditUser from './components/users/EditUser';
 import './App.css';
 
@@ -34,7 +33,6 @@ const App = () => {
           <Route path='/editPost/:postId' element={<EditPost />} />
           <Route path="/userRegistration" element={<NewUser />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/userProfile/:userId" element={<ViewUser />} />
           <Route path="/editUser/:userId" element={<EditUser />} />
         </Routes>
       </div>

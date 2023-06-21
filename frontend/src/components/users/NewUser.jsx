@@ -21,31 +21,37 @@ const NewUser = () => {
 
   const [showPasswordDigest, setShowPasswordDigest] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    if (!validateInputs()) {
-      return;
+  if (!validateInputs()) {
+    return;
+  }
+
+  const userToSubmit = { ...user };
+
+  if (!showPasswordDigest) {
+    userToSubmit.passwordDigest = ''; 
+  }
+
+  try {
+    const response = await fetch('http://localhost:8080/users/new', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userToSubmit), 
+    });
+
+    if (response.ok) {
+      navigate('/');
+    } else {
+      console.log('Error:', response.status);
     }
-
-    try {
-      const response = await fetch('http://localhost:8080/users/new', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(user)
-      });
-
-      if (response.ok) {
-        navigate('/');
-      } else {
-        console.log('Error:', response.status);
-      }
-    } catch (error) {
-      console.log('Error:', error);
-    }
-  };
+  } catch (error) {
+    console.log('Error:', error);
+  }
+};
 
   const validateInputs = () => {
     if (!user.firstName || !user.lastName || !user.email || !user.password) {

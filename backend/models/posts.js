@@ -33,6 +33,11 @@ const postSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-});
+    // adding a reservation array
+    reservations: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Reservation',
+    }],
+  });
 
 module.exports = mongoose.model('Post', postSchema);
