@@ -78,55 +78,54 @@ const Login = () => {
             <h1>Login page</h1>
           </Card.Title>
           <br />
-          <Card.Text>
-            <Form noValidate onSubmit={handleSubmit}>
-              <Row className="mb-3" style={{ justifyContent: 'center' }}> 
-                <Form.Group as={Col} md="4" controlId="email">
-                  <Form.Label>Email</Form.Label>
+          <Form noValidate onSubmit={handleSubmit}>
+            <Row className="mb-3" style={{ justifyContent: 'center' }}> 
+              <Form.Group as={Col} md="4" controlId="email">
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  required
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  value={credentials.email}
+                  onChange={handleInputChange}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please enter a valid email.
+                </Form.Control.Feedback>
+              </Form.Group>
+
+              <Form.Group as={Col} md="4" controlId="password">
+                <Form.Label>Password</Form.Label>
+                <div className="input-group">
                   <Form.Control
                     required
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    value={credentials.email}
+                    type={passwordVisible ? 'text' : 'password'}
+                    name="password"
+                    placeholder="Password"
+                    value={credentials.password}
                     onChange={handleInputChange}
                   />
-                  <Form.Control.Feedback type="invalid">
-                    Please enter a valid email.
-                  </Form.Control.Feedback>
-                </Form.Group>
+                  <button
+                    className="password-toggle-main rounded"
+                    type="button"
+                    onClick={handlePasswordToggle}
+                  >
+                    {passwordVisible ? 'Hide' : 'Show'}
+                  </button>
+                </div>
+                <Form.Control.Feedback type="invalid">
+                  Please enter a password.
+                </Form.Control.Feedback>
+              </Form.Group>
+            </ Row>
+            {errorMessage && <div className="error-message">{errorMessage}</div>}
 
-                <Form.Group as={Col} md="4" controlId="password">
-                  <Form.Label>Password</Form.Label>
-                  <div className="input-group">
-                    <Form.Control
-                      required
-                      type={passwordVisible ? 'text' : 'password'}
-                      name="password"
-                      placeholder="Password"
-                      value={credentials.password}
-                      onChange={handleInputChange}
-                    />
-                    <button
-                      className="password-toggle-main rounded"
-                      type="button"
-                      onClick={handlePasswordToggle}
-                    >
-                      {passwordVisible ? 'Hide' : 'Show'}
-                    </button>
-                  </div>
-                  <Form.Control.Feedback type="invalid">
-                    Please enter a password.
-                  </Form.Control.Feedback>
-                </Form.Group>
-              </ Row>
-              {errorMessage && <div className="error-message">{errorMessage}</div>}
-
-              <button className="button" type="submit">
-                Log in
-              </button>
-            </Form>
-          </Card.Text>
+            <button className="button" type="submit">
+              Log in
+            </button>
+          </Form>
+          <br />
           <Card.Text>
             <Link to="/userRegistration">
               <button className="btn btn-warning">Sign up</button>

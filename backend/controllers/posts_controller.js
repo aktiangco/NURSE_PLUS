@@ -3,6 +3,7 @@
 const express = require('express');
 const router = express.Router();
 const Post = require('../models/posts');
+const Reservation = require('../models/reservation');
 const mongoose = require('mongoose');
 
 // Index route
@@ -66,6 +67,7 @@ router.post('/new', async (req, res) => {
   }
 });
 
+
 // Update route
 router.put('/:id', (req, res) => {
   Post.findByIdAndUpdate(req.params.id, req.body)
@@ -92,5 +94,50 @@ router.delete('/:id', (req, res) => {
       res.status(500).json({ error: 'Delete route failed' });
     });
 });
+
+
+
+
+// POST creating a rsvp
+router.post('/:id/reservation', (req, res) => {
+  const { reservation } = req.body; 
+
+  Post.findById(req.params.id)
+    .then((post) => {
+      Reservation.create({ reservation })
+        .then((createdReservation) => {
+          post.reservations.push(createdReservation._id);
+          post.save().then(() => {
+            res.sendStatus(200);
+          });
+        })
+        .catch((err) => {
+          console.error(err);
+          res.status(500).json({ error: 'Failed to create reservation' });
+        });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json({ error: 'Failed to find post' });
+    });
+});
+
+
+// DELETE reservation
+router.delete('/posts/:id/reservation/:reservationId', (req, res) => {
+  const { reservationId } = req.params;
+
+  Reservation.findByIdAndDelete(reservationId)
+    .then(() => {
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json({ error: 'Failed to delete reservation' });
+    });
+});
+
+
+
 
 module.exports = router;

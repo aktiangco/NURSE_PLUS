@@ -78,6 +78,43 @@ router.get('/users/:id', async (req, res) => {
   }
 });
 
+router.put('/users/:id', async (req, res) => {
+  const userId = req.params.id;
+  const { firstName, lastName, email, password, city, state, zipCode, role } = req.body;
+
+  try {
+    // Check if the user exists
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    // Update the user properties
+    user.firstName = firstName;
+    user.lastName = lastName;
+    user.email = email;
+    user.city = city;
+    user.state = state;
+    user.zipCode = zipCode;
+    user.role = role === 'admin' ? 'admin' : 'user';
+
+    // Check if the password needs to be updated
+    if (password) {
+      const saltRounds = 10;
+      const passwordHash = await bcrypt.hash(password, saltRounds);
+      user.password = passwordHash;
+    }
+
+    // Save the updated user to the database
+    const updatedUser = await user.save();
+    res.json(updatedUser);
+  } catch (error) {
+    console.error('Error updating user:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
 // Logout route
 router.post('/logout', (req, res) => {
   req.session = null;
