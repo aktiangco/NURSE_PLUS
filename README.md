@@ -23,7 +23,6 @@ NURSE_PLUS is a MERN stack project created using React as its frontend framework
 - [Incomplete Features](#incomplete-features)
 - [Contributing](#contributing)
 
-
 ## Getting Started
 
 To get started with the project, follow these steps:
