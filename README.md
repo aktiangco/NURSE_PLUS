@@ -32,7 +32,7 @@ To get started with the project, follow these steps:
 2. Install the dependencies: `npm install`
 3. Start the development server: `npm start`
 4. Open the application in your browser at `http://localhost:3000`
-5. Run your server side at `http://localhost:8080`
+5. Run your server side at `https://nurseplus.onrender.com`
 
 ## Help Sources
 

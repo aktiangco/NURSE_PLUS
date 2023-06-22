@@ -9,7 +9,7 @@ const cookieSession = require('cookie-session'); // Add this line
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+app.use(cors({ origin: 'https://nurse-plus.onrender.com', credentials: true }));
 app.use(cookieSession({
   name: 'session',
   keys: [process.env.SESSION_SECRET],
