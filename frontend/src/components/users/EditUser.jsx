@@ -29,7 +29,7 @@ const EditUser = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+      // TODO fix put handle on the backend
     try {
       await fetch(`https://nurseplus.onrender.com/users/${userId}`, {
         method: 'PUT',

@@ -49,7 +49,7 @@ const PostDetails = () => {
       });
   };
   
-
+ // TODO fix route
   const handleCancelReservation = (reservationId) => {
     fetch(`/posts/${postId}/reservation/${reservationId}`, {
       method: 'DELETE',
