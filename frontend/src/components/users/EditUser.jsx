@@ -31,7 +31,7 @@ const EditUser = () => {
     e.preventDefault();
       // TODO fix put handle on the backend
     try {
-      await fetch(`https://nurseplus.onrender.com/users/${userId}`, {
+      await fetch(`https://nurseplus.onrender.com/auth/users/${userId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
