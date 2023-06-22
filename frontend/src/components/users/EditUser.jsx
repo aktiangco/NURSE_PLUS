@@ -17,7 +17,7 @@ const EditUser = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/users/${userId}`);
+        const response = await fetch(`https://nurseplus.onrender.com/users/${userId}`);
         const resData = await response.json();
         setUser(resData);
       } catch (error) {
@@ -31,7 +31,7 @@ const EditUser = () => {
     e.preventDefault();
 
     try {
-      await fetch(`http://localhost:8080/users/${userId}`, {
+      await fetch(`https://nurseplus.onrender.com/users/${userId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ const EditUser = () => {
 
   const handleDelete = async () => {
     try {
-      await fetch(`http://localhost:8080/users/${userId}`, {
+      await fetch(`https://nurseplus.onrender.com/users/${userId}`, {
         method: 'DELETE',
       });
       navigate('/gallery');

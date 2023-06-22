@@ -19,7 +19,7 @@ const NavBar = () => {
     }
     
     const handleLogout = async () => {
-        await fetch('http://localhost:8080/auth/logout', {
+        await fetch('https://nurseplus.onrender.com/auth/logout', {
           method: 'POST',
           credentials: 'include',
         })

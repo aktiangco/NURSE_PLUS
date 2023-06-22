@@ -22,7 +22,7 @@ const NewPost = () => {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    await fetch(`http://localhost:8080/posts/new`, {
+    await fetch(`https://nurseplus.onrender.com/posts/new`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

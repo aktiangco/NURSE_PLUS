@@ -9,7 +9,7 @@ const Post = () => {
 
   const fetchPosts = async () => {
     try {
-      const response = await fetch('http://localhost:8080/posts');
+      const response = await fetch('https://nurseplus.onrender.com/posts');
       const data = await response.json();
       return data;
     } catch (error) {

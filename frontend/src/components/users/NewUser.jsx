@@ -35,7 +35,7 @@ const handleSubmit = async (e) => {
   }
 
   try {
-    const response = await fetch('http://localhost:8080/users/new', {
+    const response = await fetch('https://nurseplus.onrender.com/users/new', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

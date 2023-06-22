@@ -8,7 +8,7 @@ function CurrentUserProvider({ children }) {
   useEffect(() => {
     const getLoggedInUser = async () => {
       try {
-        const response = await fetch('http://localhost:8080/auth/profile', {
+        const response = await fetch('https://nurseplus.onrender.com/auth/profile', {
           credentials: 'include',
         });
         if (response.ok) {

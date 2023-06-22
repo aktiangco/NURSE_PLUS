@@ -14,7 +14,7 @@ const PostDetails = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/posts/${postId}`);
+        const response = await fetch(`https://nurseplus.onrender.com/posts/${postId}`);
         const resData = await response.json();
         setPost(resData);
         if (resData.reservations.includes(currentUser._id)) {
@@ -30,7 +30,7 @@ const PostDetails = () => {
   const handleReservation = () => {
     const reservationStatus = !reservation;
   
-    fetch(`http://localhost:8080/posts/${postId}/reservation`, { // Add the server URL
+    fetch(`https://nurseplus.onrender.com/posts/${postId}/reservation`, { // Add the server URL
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

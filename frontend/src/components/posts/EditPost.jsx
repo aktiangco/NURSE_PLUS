@@ -14,7 +14,7 @@ const EditPost = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/posts/${postId}`);
+        const response = await fetch(`https://nurseplus.onrender.com/posts/${postId}`);
         const resData = await response.json();
         setPost(resData);
       } catch (error) {
@@ -32,7 +32,7 @@ const EditPost = () => {
     e.preventDefault();
 
     try {
-      await fetch(`http://localhost:8080/posts/${postId}`, {
+      await fetch(`https://nurseplus.onrender.com/posts/${postId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ const EditPost = () => {
 
   const handleDelete = async () => {
     try {
-      await fetch(`http://localhost:8080/posts/${post._id}`, {
+      await fetch(`https://nurseplus.onrender.com/posts/${post._id}`, {
         method: 'DELETE',
       });
       navigate('/gallery');
