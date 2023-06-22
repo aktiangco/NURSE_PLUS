@@ -48,6 +48,10 @@ Here are some helpful resources that were used during the development of this pr
   - [React Bootstrap Icons](https://www.npmjs.com/package/react-bootstrap-icons)
 - **MongoDB Connection**
   - [The Net Ninja (YouTube)](https://www.youtube.com/@NetNinja)
+- **StackOverflow**
+  - [StackOverflow](https://stackoverflow.com/help/how-to-ask)
+- **Background Image**
+  - [Background Image](https://www.vectorstock.com/royalty-free-vectors/nurse-wallpaper-vectors)
 - **Helped From**
   - [Marlon Baker](https://github.com/MarBakerswe)
 
