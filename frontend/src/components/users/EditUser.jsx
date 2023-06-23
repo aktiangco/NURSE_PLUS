@@ -48,7 +48,7 @@ const EditUser = () => {
 
   const handleDelete = async () => {
     try {
-      await fetch(`https://nurseplus.onrender.com/users/${userId}`, {
+      await fetch(`https://nurseplus.onrender.com/auth/users/${userId}`, {
         method: 'DELETE',
       });
       navigate('/gallery');
